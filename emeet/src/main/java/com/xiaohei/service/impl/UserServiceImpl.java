@@ -11,7 +11,7 @@ import com.xiaohei.model.User;
 import com.xiaohei.model.UserExample;
 import com.xiaohei.service.UserService;
 
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService{
 	@Autowired
 	UserMapper userMapper;
