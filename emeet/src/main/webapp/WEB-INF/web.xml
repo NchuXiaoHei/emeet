@@ -8,7 +8,7 @@
    <!-- Spring应用上下文， 理解层次化的ApplicationContext -->
   <context-param>
  		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/configs/applicationContext*.xml,/WEB-INF/configs/applicationContext-service.xml</param-value>
+		<param-value>classpath*:/applicationContext*.xml,classpath*:/applicationContext-service.xml</param-value>
   </context-param>
   
   <listener>  
@@ -22,7 +22,7 @@
 		 -->
 		<init-param>
           <param-name>contextConfigLocation</param-name>
-          <param-value>/WEB-INF/configs/mvc-dispatcher-servlet.xml</param-value>
+          <param-value>classpath*:/mvc-dispatcher-servlet.xml</param-value>
         </init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

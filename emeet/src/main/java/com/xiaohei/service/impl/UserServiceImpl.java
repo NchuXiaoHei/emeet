@@ -24,11 +24,11 @@ public class UserServiceImpl implements UserService{
 		UserExample.Criteria criteria = userExample.createCriteria();
 		
 		criteria.andPwdEqualTo(pwd);
+		criteria.andUserIdEqualTo(Long.valueOf(userId));
 		users = userMapper.selectByExample(userExample);
 		if(users.size() ==1)
 			return users.get(0);
 		return null;
 	}
-	
 	
 }

@@ -23,9 +23,9 @@ public class UserAction {
 		user = userService.loginValidate(userId, pwd);
 		if(user!=null) {
 			session.setAttribute("user", user);
-			return "test";
+			return "ower/test";
 		}
 		
-		return "redirect:../index.jsp";
+		return "index";
 	}
 }
