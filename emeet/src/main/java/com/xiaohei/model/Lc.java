@@ -2,7 +2,7 @@ package com.xiaohei.model;
 
 import java.util.Date;
 
-public class Lc {
+public class Lc {   //会议流程
     private Integer num;
 
     private Long id;

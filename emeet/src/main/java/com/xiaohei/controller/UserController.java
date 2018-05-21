@@ -1,4 +1,4 @@
-package com.xiaohei.action;
+package com.xiaohei.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,7 +12,7 @@ import com.xiaohei.service.UserService;
 
 @Controller
 @RequestMapping("/user")
-public class UserAction {
+public class UserController {
 	
 	@Autowired
 	private UserService userService;

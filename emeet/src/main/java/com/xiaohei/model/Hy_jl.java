@@ -1,6 +1,6 @@
 package com.xiaohei.model;
 
-public class Hy_jl {
+public class Hy_jl {   //会议记录
     private Long id;
 
     private Integer jlId;

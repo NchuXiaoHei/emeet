@@ -1,6 +1,6 @@
 package com.xiaohei.model;
 
-public class Zl {
+public class Zl {  //资料
     private Integer zlId;
 
     private Long id;

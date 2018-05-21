@@ -1,6 +1,6 @@
 package com.xiaohei.model;
 
-public class Tp {
+public class Tp {   //投票
     private Long id;
 
     private Long userId;

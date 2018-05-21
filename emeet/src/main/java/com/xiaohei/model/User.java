@@ -1,6 +1,6 @@
 package com.xiaohei.model;
 
-public class User {
+public class User {  //系统用户
     private Long userId;
 
     private String pwd;

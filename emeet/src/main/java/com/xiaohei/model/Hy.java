@@ -2,7 +2,7 @@ package com.xiaohei.model;
 
 import java.util.Date;
 
-public class Hy {
+public class Hy {   //会议
     private Long id;
 
     private String name;
