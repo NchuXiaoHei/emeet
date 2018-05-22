@@ -22,6 +22,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.xiaohei.controller.UserController;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration(value = "src/main/webapp")
@@ -37,7 +39,7 @@ public class UserActionTest {
 	
 	
 	@Autowired
-	UserAction userAction;
+	UserController userAction;
 	@Autowired
 	ServletContext context;
 
