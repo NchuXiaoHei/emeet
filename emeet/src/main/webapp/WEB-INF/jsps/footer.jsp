@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>发起会议</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="../navbar.jsp"></jsp:include><!-- 引入导航框架文件 -->
+
 </body>
 </html>
