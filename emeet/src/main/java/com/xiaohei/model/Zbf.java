@@ -1,6 +1,6 @@
 package com.xiaohei.model;
 
-public class Zbf {  //主办方
+public class Zbf {
     private String name;
 
     private Long userId;

@@ -354,6 +354,286 @@ public class HyExample {
             addCriterion("e_time not between", value1, value2, "eTime");
             return (Criteria) this;
         }
+
+        public Criteria andThemeIsNull() {
+            addCriterion("theme is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeIsNotNull() {
+            addCriterion("theme is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeEqualTo(String value) {
+            addCriterion("theme =", value, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeNotEqualTo(String value) {
+            addCriterion("theme <>", value, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeGreaterThan(String value) {
+            addCriterion("theme >", value, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeGreaterThanOrEqualTo(String value) {
+            addCriterion("theme >=", value, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeLessThan(String value) {
+            addCriterion("theme <", value, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeLessThanOrEqualTo(String value) {
+            addCriterion("theme <=", value, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeLike(String value) {
+            addCriterion("theme like", value, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeNotLike(String value) {
+            addCriterion("theme not like", value, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeIn(List<String> values) {
+            addCriterion("theme in", values, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeNotIn(List<String> values) {
+            addCriterion("theme not in", values, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeBetween(String value1, String value2) {
+            addCriterion("theme between", value1, value2, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andThemeNotBetween(String value1, String value2) {
+            addCriterion("theme not between", value1, value2, "theme");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1IsNull() {
+            addCriterion("pirture1 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1IsNotNull() {
+            addCriterion("pirture1 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1EqualTo(String value) {
+            addCriterion("pirture1 =", value, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1NotEqualTo(String value) {
+            addCriterion("pirture1 <>", value, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1GreaterThan(String value) {
+            addCriterion("pirture1 >", value, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1GreaterThanOrEqualTo(String value) {
+            addCriterion("pirture1 >=", value, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1LessThan(String value) {
+            addCriterion("pirture1 <", value, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1LessThanOrEqualTo(String value) {
+            addCriterion("pirture1 <=", value, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1Like(String value) {
+            addCriterion("pirture1 like", value, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1NotLike(String value) {
+            addCriterion("pirture1 not like", value, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1In(List<String> values) {
+            addCriterion("pirture1 in", values, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1NotIn(List<String> values) {
+            addCriterion("pirture1 not in", values, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1Between(String value1, String value2) {
+            addCriterion("pirture1 between", value1, value2, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture1NotBetween(String value1, String value2) {
+            addCriterion("pirture1 not between", value1, value2, "pirture1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2IsNull() {
+            addCriterion("pirture2 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2IsNotNull() {
+            addCriterion("pirture2 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2EqualTo(String value) {
+            addCriterion("pirture2 =", value, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2NotEqualTo(String value) {
+            addCriterion("pirture2 <>", value, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2GreaterThan(String value) {
+            addCriterion("pirture2 >", value, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2GreaterThanOrEqualTo(String value) {
+            addCriterion("pirture2 >=", value, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2LessThan(String value) {
+            addCriterion("pirture2 <", value, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2LessThanOrEqualTo(String value) {
+            addCriterion("pirture2 <=", value, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2Like(String value) {
+            addCriterion("pirture2 like", value, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2NotLike(String value) {
+            addCriterion("pirture2 not like", value, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2In(List<String> values) {
+            addCriterion("pirture2 in", values, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2NotIn(List<String> values) {
+            addCriterion("pirture2 not in", values, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2Between(String value1, String value2) {
+            addCriterion("pirture2 between", value1, value2, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPirture2NotBetween(String value1, String value2) {
+            addCriterion("pirture2 not between", value1, value2, "pirture2");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNull() {
+            addCriterion("status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNotNull() {
+            addCriterion("status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusEqualTo(String value) {
+            addCriterion("status =", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotEqualTo(String value) {
+            addCriterion("status <>", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThan(String value) {
+            addCriterion("status >", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanOrEqualTo(String value) {
+            addCriterion("status >=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThan(String value) {
+            addCriterion("status <", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanOrEqualTo(String value) {
+            addCriterion("status <=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLike(String value) {
+            addCriterion("status like", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotLike(String value) {
+            addCriterion("status not like", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIn(List<String> values) {
+            addCriterion("status in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotIn(List<String> values) {
+            addCriterion("status not in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusBetween(String value1, String value2) {
+            addCriterion("status between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotBetween(String value1, String value2) {
+            addCriterion("status not between", value1, value2, "status");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

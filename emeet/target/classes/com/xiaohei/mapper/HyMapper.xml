@@ -6,6 +6,10 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="s_time" jdbcType="TIMESTAMP" property="sTime" />
     <result column="e_time" jdbcType="TIMESTAMP" property="eTime" />
+    <result column="theme" jdbcType="VARCHAR" property="theme" />
+    <result column="pirture1" jdbcType="VARCHAR" property="pirture1" />
+    <result column="pirture2" jdbcType="VARCHAR" property="pirture2" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, name, s_time, e_time
+    ID, name, s_time, e_time, theme, pirture1, pirture2, status
   </sql>
   <select id="selectByExample" parameterType="com.xiaohei.model.HyExample" resultMap="BaseResultMap">
     select
@@ -101,9 +105,11 @@
   </delete>
   <insert id="insert" parameterType="com.xiaohei.model.Hy">
     insert into hy (ID, name, s_time, 
-      e_time)
+      e_time, theme, pirture1, 
+      pirture2, status)
     values (#{id,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, #{sTime,jdbcType=TIMESTAMP}, 
-      #{eTime,jdbcType=TIMESTAMP})
+      #{eTime,jdbcType=TIMESTAMP}, #{theme,jdbcType=VARCHAR}, #{pirture1,jdbcType=VARCHAR}, 
+      #{pirture2,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xiaohei.model.Hy">
     insert into hy
@@ -120,6 +126,18 @@
       <if test="eTime != null">
         e_time,
       </if>
+      <if test="theme != null">
+        theme,
+      </if>
+      <if test="pirture1 != null">
+        pirture1,
+      </if>
+      <if test="pirture2 != null">
+        pirture2,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -133,6 +151,18 @@
       </if>
       <if test="eTime != null">
         #{eTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="theme != null">
+        #{theme,jdbcType=VARCHAR},
+      </if>
+      <if test="pirture1 != null">
+        #{pirture1,jdbcType=VARCHAR},
+      </if>
+      <if test="pirture2 != null">
+        #{pirture2,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -157,6 +187,18 @@
       <if test="record.eTime != null">
         e_time = #{record.eTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.theme != null">
+        theme = #{record.theme,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pirture1 != null">
+        pirture1 = #{record.pirture1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pirture2 != null">
+        pirture2 = #{record.pirture2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -167,7 +209,11 @@
     set ID = #{record.id,jdbcType=DECIMAL},
       name = #{record.name,jdbcType=VARCHAR},
       s_time = #{record.sTime,jdbcType=TIMESTAMP},
-      e_time = #{record.eTime,jdbcType=TIMESTAMP}
+      e_time = #{record.eTime,jdbcType=TIMESTAMP},
+      theme = #{record.theme,jdbcType=VARCHAR},
+      pirture1 = #{record.pirture1,jdbcType=VARCHAR},
+      pirture2 = #{record.pirture2,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -184,6 +230,18 @@
       <if test="eTime != null">
         e_time = #{eTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="theme != null">
+        theme = #{theme,jdbcType=VARCHAR},
+      </if>
+      <if test="pirture1 != null">
+        pirture1 = #{pirture1,jdbcType=VARCHAR},
+      </if>
+      <if test="pirture2 != null">
+        pirture2 = #{pirture2,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=DECIMAL}
   </update>
@@ -191,7 +249,11 @@
     update hy
     set name = #{name,jdbcType=VARCHAR},
       s_time = #{sTime,jdbcType=TIMESTAMP},
-      e_time = #{eTime,jdbcType=TIMESTAMP}
+      e_time = #{eTime,jdbcType=TIMESTAMP},
+      theme = #{theme,jdbcType=VARCHAR},
+      pirture1 = #{pirture1,jdbcType=VARCHAR},
+      pirture2 = #{pirture2,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=DECIMAL}
   </update>
 </mapper>

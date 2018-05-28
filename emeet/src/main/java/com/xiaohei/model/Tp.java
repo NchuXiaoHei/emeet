@@ -1,6 +1,6 @@
 package com.xiaohei.model;
 
-public class Tp {   //投票
+public class Tp {
     private Long id;
 
     private Long userId;
@@ -8,6 +8,8 @@ public class Tp {   //投票
     private Integer tpId;
 
     private Boolean px;
+
+    private String note;
 
     public Long getId() {
         return id;
@@ -41,6 +43,14 @@ public class Tp {   //投票
         this.px = px;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note == null ? null : note.trim();
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -56,7 +66,8 @@ public class Tp {   //投票
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getTpId() == null ? other.getTpId() == null : this.getTpId().equals(other.getTpId()))
-            && (this.getPx() == null ? other.getPx() == null : this.getPx().equals(other.getPx()));
+            && (this.getPx() == null ? other.getPx() == null : this.getPx().equals(other.getPx()))
+            && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()));
     }
 
     @Override
@@ -67,6 +78,7 @@ public class Tp {   //投票
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         result = prime * result + ((getTpId() == null) ? 0 : getTpId().hashCode());
         result = prime * result + ((getPx() == null) ? 0 : getPx().hashCode());
+        result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
         return result;
     }
 }

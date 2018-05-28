@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.xiaohei.model.Zl">
     <id column="zl_id" jdbcType="INTEGER" property="zlId" />
     <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xiaohei.model.Zl">
     <result column="file_path" jdbcType="LONGVARCHAR" property="filePath" />
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    zl_id, ID
+    zl_id, ID, note
   </sql>
   <sql id="Blob_Column_List">
     file_path
@@ -125,10 +126,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xiaohei.model.Zl">
-    insert into zl (zl_id, ID, file_path
-      )
-    values (#{zlId,jdbcType=INTEGER}, #{id,jdbcType=DECIMAL}, #{filePath,jdbcType=LONGVARCHAR}
-      )
+    insert into zl (zl_id, ID, note, 
+      file_path)
+    values (#{zlId,jdbcType=INTEGER}, #{id,jdbcType=DECIMAL}, #{note,jdbcType=VARCHAR}, 
+      #{filePath,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xiaohei.model.Zl">
     insert into zl
@@ -138,6 +139,9 @@
       </if>
       <if test="id != null">
         ID,
+      </if>
+      <if test="note != null">
+        note,
       </if>
       <if test="filePath != null">
         file_path,
@@ -149,6 +153,9 @@
       </if>
       <if test="id != null">
         #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
       </if>
       <if test="filePath != null">
         #{filePath,jdbcType=LONGVARCHAR},
@@ -170,6 +177,9 @@
       <if test="record.id != null">
         ID = #{record.id,jdbcType=DECIMAL},
       </if>
+      <if test="record.note != null">
+        note = #{record.note,jdbcType=VARCHAR},
+      </if>
       <if test="record.filePath != null">
         file_path = #{record.filePath,jdbcType=LONGVARCHAR},
       </if>
@@ -182,6 +192,7 @@
     update zl
     set zl_id = #{record.zlId,jdbcType=INTEGER},
       ID = #{record.id,jdbcType=DECIMAL},
+      note = #{record.note,jdbcType=VARCHAR},
       file_path = #{record.filePath,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -190,7 +201,8 @@
   <update id="updateByExample" parameterType="map">
     update zl
     set zl_id = #{record.zlId,jdbcType=INTEGER},
-      ID = #{record.id,jdbcType=DECIMAL}
+      ID = #{record.id,jdbcType=DECIMAL},
+      note = #{record.note,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -198,6 +210,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.xiaohei.model.Zl">
     update zl
     <set>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
       <if test="filePath != null">
         file_path = #{filePath,jdbcType=LONGVARCHAR},
       </if>
@@ -207,7 +222,14 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xiaohei.model.Zl">
     update zl
-    set file_path = #{filePath,jdbcType=LONGVARCHAR}
+    set note = #{note,jdbcType=VARCHAR},
+      file_path = #{filePath,jdbcType=LONGVARCHAR}
+    where zl_id = #{zlId,jdbcType=INTEGER}
+      and ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xiaohei.model.Zl">
+    update zl
+    set note = #{note,jdbcType=VARCHAR}
     where zl_id = #{zlId,jdbcType=INTEGER}
       and ID = #{id,jdbcType=DECIMAL}
   </update>

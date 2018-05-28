@@ -6,6 +6,7 @@
     <id column="user_id" jdbcType="DECIMAL" property="userId" />
     <id column="tp_id" jdbcType="INTEGER" property="tpId" />
     <result column="px" jdbcType="BIT" property="px" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, user_id, tp_id, px
+    ID, user_id, tp_id, px, note
   </sql>
   <select id="selectByExample" parameterType="com.xiaohei.model.TpExample" resultMap="BaseResultMap">
     select
@@ -105,9 +106,9 @@
   </delete>
   <insert id="insert" parameterType="com.xiaohei.model.Tp">
     insert into tp (ID, user_id, tp_id, 
-      px)
+      px, note)
     values (#{id,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, #{tpId,jdbcType=INTEGER}, 
-      #{px,jdbcType=BIT})
+      #{px,jdbcType=BIT}, #{note,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xiaohei.model.Tp">
     insert into tp
@@ -124,6 +125,9 @@
       <if test="px != null">
         px,
       </if>
+      <if test="note != null">
+        note,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -137,6 +141,9 @@
       </if>
       <if test="px != null">
         #{px,jdbcType=BIT},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -161,6 +168,9 @@
       <if test="record.px != null">
         px = #{record.px,jdbcType=BIT},
       </if>
+      <if test="record.note != null">
+        note = #{record.note,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -171,7 +181,8 @@
     set ID = #{record.id,jdbcType=DECIMAL},
       user_id = #{record.userId,jdbcType=DECIMAL},
       tp_id = #{record.tpId,jdbcType=INTEGER},
-      px = #{record.px,jdbcType=BIT}
+      px = #{record.px,jdbcType=BIT},
+      note = #{record.note,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -182,6 +193,9 @@
       <if test="px != null">
         px = #{px,jdbcType=BIT},
       </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=DECIMAL}
       and user_id = #{userId,jdbcType=DECIMAL}
@@ -189,7 +203,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xiaohei.model.Tp">
     update tp
-    set px = #{px,jdbcType=BIT}
+    set px = #{px,jdbcType=BIT},
+      note = #{note,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=DECIMAL}
       and user_id = #{userId,jdbcType=DECIMAL}
       and tp_id = #{tpId,jdbcType=INTEGER}

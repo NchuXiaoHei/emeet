@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Hello!
+	Hello!<%String user_id = (String)session.getAttribute("user"); %>
+	<button onclick="meetUp()">发起会议</button>
 </body>
+
+<script>
+	function meetUp(){
+		window.location.href="/meetUp";
+	}
+</script>
 </html>

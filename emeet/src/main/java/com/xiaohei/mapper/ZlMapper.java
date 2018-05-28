@@ -31,4 +31,6 @@ public interface ZlMapper {
     int updateByPrimaryKeySelective(Zl record);
 
     int updateByPrimaryKeyWithBLOBs(Zl record);
+
+    int updateByPrimaryKey(Zl record);
 }
