@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaohei.mapper.Tp_jlMapper">
+  <resultMap id="BaseResultMap" type="com.xiaohei.model.Tp_jl">
+    <id column="tp_id" jdbcType="INTEGER" property="tpId" />
+    <id column="user_id" jdbcType="DECIMAL" property="userId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xiaohei.model.Tp_jl">
+    <result column="px" jdbcType="BINARY" property="px" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    tp_id, user_id
+  </sql>
+  <sql id="Blob_Column_List">
+    px
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.xiaohei.model.Tp_jlExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tp_jl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.xiaohei.model.Tp_jlExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tp_jl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tp_jl
+    where tp_id = #{tpId,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from tp_jl
+    where tp_id = #{tpId,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xiaohei.model.Tp_jlExample">
+    delete from tp_jl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xiaohei.model.Tp_jl">
+    insert into tp_jl (tp_id, user_id, px
+      )
+    values (#{tpId,jdbcType=INTEGER}, #{userId,jdbcType=DECIMAL}, #{px,jdbcType=BINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiaohei.model.Tp_jl">
+    insert into tp_jl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tpId != null">
+        tp_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="px != null">
+        px,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tpId != null">
+        #{tpId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="px != null">
+        #{px,jdbcType=BINARY},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xiaohei.model.Tp_jlExample" resultType="java.lang.Long">
+    select count(*) from tp_jl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tp_jl
+    <set>
+      <if test="record.tpId != null">
+        tp_id = #{record.tpId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.px != null">
+        px = #{record.px,jdbcType=BINARY},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tp_jl
+    set tp_id = #{record.tpId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=DECIMAL},
+      px = #{record.px,jdbcType=BINARY}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tp_jl
+    set tp_id = #{record.tpId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiaohei.model.Tp_jl">
+    update tp_jl
+    <set>
+      <if test="px != null">
+        px = #{px,jdbcType=BINARY},
+      </if>
+    </set>
+    where tp_id = #{tpId,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xiaohei.model.Tp_jl">
+    update tp_jl
+    set px = #{px,jdbcType=BINARY}
+    where tp_id = #{tpId,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=DECIMAL}
+  </update>
+</mapper>

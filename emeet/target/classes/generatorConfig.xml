@@ -81,6 +81,14 @@
         enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
         selectByExampleQueryId="true"/>
+        <table tableName="tp_jl" domainObjectName="Tp_jl" 
+        enableCountByExample="true" enableUpdateByExample="true"
+        enableDeleteByExample="true" enableSelectByExample="true"
+        selectByExampleQueryId="true"/>
+        <table tableName="message" domainObjectName="Message" 
+        enableCountByExample="true" enableUpdateByExample="true"
+        enableDeleteByExample="true" enableSelectByExample="true"
+        selectByExampleQueryId="true"/>
         <!-- enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
         selectByExampleQueryId="true">  指定是否生成操作数据库对应的方法 -->
