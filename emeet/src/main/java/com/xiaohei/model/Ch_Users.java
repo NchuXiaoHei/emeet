@@ -5,6 +5,8 @@ public class Ch_Users {
 
     private Long id;
 
+    private String status;
+
     private String type;
 
     public Long getUserId() {
@@ -21,6 +23,14 @@ public class Ch_Users {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
     }
 
     public String getType() {
@@ -45,6 +55,7 @@ public class Ch_Users {
         Ch_Users other = (Ch_Users) that;
         return (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()));
     }
 
@@ -54,6 +65,7 @@ public class Ch_Users {
         int result = 1;
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
         return result;
     }

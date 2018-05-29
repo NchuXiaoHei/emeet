@@ -31,4 +31,6 @@ public interface Ch_UsersMapper {
     int updateByPrimaryKeySelective(Ch_Users record);
 
     int updateByPrimaryKeyWithBLOBs(Ch_Users record);
+
+    int updateByPrimaryKey(Ch_Users record);
 }

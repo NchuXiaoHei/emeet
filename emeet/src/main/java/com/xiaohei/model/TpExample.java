@@ -164,66 +164,6 @@ public class TpExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNull() {
-            addCriterion("user_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdIsNotNull() {
-            addCriterion("user_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdEqualTo(Long value) {
-            addCriterion("user_id =", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdNotEqualTo(Long value) {
-            addCriterion("user_id <>", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdGreaterThan(Long value) {
-            addCriterion("user_id >", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("user_id >=", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdLessThan(Long value) {
-            addCriterion("user_id <", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("user_id <=", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdIn(List<Long> values) {
-            addCriterion("user_id in", values, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdNotIn(List<Long> values) {
-            addCriterion("user_id not in", values, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdBetween(Long value1, Long value2) {
-            addCriterion("user_id between", value1, value2, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("user_id not between", value1, value2, "userId");
-            return (Criteria) this;
-        }
-
         public Criteria andTpIdIsNull() {
             addCriterion("tp_id is null");
             return (Criteria) this;
@@ -281,66 +221,6 @@ public class TpExample {
 
         public Criteria andTpIdNotBetween(Integer value1, Integer value2) {
             addCriterion("tp_id not between", value1, value2, "tpId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxIsNull() {
-            addCriterion("px is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxIsNotNull() {
-            addCriterion("px is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxEqualTo(Boolean value) {
-            addCriterion("px =", value, "px");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxNotEqualTo(Boolean value) {
-            addCriterion("px <>", value, "px");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxGreaterThan(Boolean value) {
-            addCriterion("px >", value, "px");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxGreaterThanOrEqualTo(Boolean value) {
-            addCriterion("px >=", value, "px");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxLessThan(Boolean value) {
-            addCriterion("px <", value, "px");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxLessThanOrEqualTo(Boolean value) {
-            addCriterion("px <=", value, "px");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxIn(List<Boolean> values) {
-            addCriterion("px in", values, "px");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxNotIn(List<Boolean> values) {
-            addCriterion("px not in", values, "px");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxBetween(Boolean value1, Boolean value2) {
-            addCriterion("px between", value1, value2, "px");
-            return (Criteria) this;
-        }
-
-        public Criteria andPxNotBetween(Boolean value1, Boolean value2) {
-            addCriterion("px not between", value1, value2, "px");
             return (Criteria) this;
         }
 

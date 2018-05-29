@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.xiaohei.model.Ch_Users">
     <id column="user_id" jdbcType="DECIMAL" property="userId" />
     <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xiaohei.model.Ch_Users">
     <result column="type" jdbcType="LONGVARCHAR" property="type" />
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    user_id, ID
+    user_id, ID, status
   </sql>
   <sql id="Blob_Column_List">
     type
@@ -125,10 +126,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xiaohei.model.Ch_Users">
-    insert into ch_users (user_id, ID, type
-      )
-    values (#{userId,jdbcType=DECIMAL}, #{id,jdbcType=DECIMAL}, #{type,jdbcType=LONGVARCHAR}
-      )
+    insert into ch_users (user_id, ID, status, 
+      type)
+    values (#{userId,jdbcType=DECIMAL}, #{id,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, 
+      #{type,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xiaohei.model.Ch_Users">
     insert into ch_users
@@ -138,6 +139,9 @@
       </if>
       <if test="id != null">
         ID,
+      </if>
+      <if test="status != null">
+        status,
       </if>
       <if test="type != null">
         type,
@@ -149,6 +153,9 @@
       </if>
       <if test="id != null">
         #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
         #{type,jdbcType=LONGVARCHAR},
@@ -170,6 +177,9 @@
       <if test="record.id != null">
         ID = #{record.id,jdbcType=DECIMAL},
       </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
       <if test="record.type != null">
         type = #{record.type,jdbcType=LONGVARCHAR},
       </if>
@@ -182,6 +192,7 @@
     update ch_users
     set user_id = #{record.userId,jdbcType=DECIMAL},
       ID = #{record.id,jdbcType=DECIMAL},
+      status = #{record.status,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -190,7 +201,8 @@
   <update id="updateByExample" parameterType="map">
     update ch_users
     set user_id = #{record.userId,jdbcType=DECIMAL},
-      ID = #{record.id,jdbcType=DECIMAL}
+      ID = #{record.id,jdbcType=DECIMAL},
+      status = #{record.status,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -198,6 +210,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.xiaohei.model.Ch_Users">
     update ch_users
     <set>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
       <if test="type != null">
         type = #{type,jdbcType=LONGVARCHAR},
       </if>
@@ -207,7 +222,14 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xiaohei.model.Ch_Users">
     update ch_users
-    set type = #{type,jdbcType=LONGVARCHAR}
+    set status = #{status,jdbcType=VARCHAR},
+      type = #{type,jdbcType=LONGVARCHAR}
+    where user_id = #{userId,jdbcType=DECIMAL}
+      and ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xiaohei.model.Ch_Users">
+    update ch_users
+    set status = #{status,jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=DECIMAL}
       and ID = #{id,jdbcType=DECIMAL}
   </update>

@@ -10,7 +10,7 @@ public interface TpMapper {
 
     int deleteByExample(TpExample example);
 
-    int deleteByPrimaryKey(@Param("id") Long id, @Param("userId") Long userId, @Param("tpId") Integer tpId);
+    int deleteByPrimaryKey(@Param("id") Long id, @Param("tpId") Integer tpId);
 
     int insert(Tp record);
 
@@ -18,7 +18,7 @@ public interface TpMapper {
 
     List<Tp> selectByExample(TpExample example);
 
-    Tp selectByPrimaryKey(@Param("id") Long id, @Param("userId") Long userId, @Param("tpId") Integer tpId);
+    Tp selectByPrimaryKey(@Param("id") Long id, @Param("tpId") Integer tpId);
 
     int updateByExampleSelective(@Param("record") Tp record, @Param("example") TpExample example);
 
