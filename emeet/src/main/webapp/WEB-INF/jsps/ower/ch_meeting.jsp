@@ -20,7 +20,7 @@
 
     <!-- Custom styles for this template -->
     <link href="../resources/css/dashboard.css" rel="stylesheet">
-
+    <script src="../resources/js/jquery.min.js"></script>
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
@@ -38,29 +38,41 @@
     <jsp:include page="../navbar.jsp"></jsp:include><!-- 引入导航框架文件 -->
 	<div style="height:200px"><img src="test.jpg" style="min-width: 100%"></img></div>
     <div class="container-fluid">
+    
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">参会人员操作<span class="sr-only">(current)</span></a></li>
-            <li><a href="#">上传资料</a></li>
-            <li><a href="#">参与投票</a></li>
-            <li><a href="#">签到</a></li>
+            <li><a href="javascript:void(0);" onclick="add_upload()">上传资料</a></li>         
+            <li><a href="javascript:void(0);" onclick="add_vote()" id="tp" name="id">参与投票</a></li>
+            <li><a href="javascript:void(0);" onclick="add_register()">签到</a></li>
           </ul>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">上传资料</h1>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="right">
+        
         </div>
      </div>
+
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
+<script>
+  function add_upload(){
+      $("#right").load("ch_meet_upload");
+  }
+  function add_vote(){
+	  window.location.href="/tpList";
+  }
+  function add_register(){
+	  $("#right").load("ch_meet_register");
+  }
+</script>
 </html>

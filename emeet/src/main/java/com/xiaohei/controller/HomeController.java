@@ -9,6 +9,18 @@ public class HomeController {
 	public String ch_meeting() {
 		return "ower/ch_meeting";
 	}
+	@RequestMapping("/ower/ch_meet_upload")
+	public String ch_meet_upload() {
+		return "ower/ch_meet_upload";
+	}
+	@RequestMapping("/particpants/ch_meet_vote")
+	public String ch_meet_vote() {
+		return "particpants/ch_meet_vote";
+	}
+	@RequestMapping("/particpants/ch_meet_register")
+	public String ch_meet_register() {
+		return "particpants/ch_meet_register";
+	}
 	@RequestMapping("/")
 	public String home() {
 		return "login"; 

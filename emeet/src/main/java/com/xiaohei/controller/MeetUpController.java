@@ -33,7 +33,7 @@ public class MeetUpController {
 			date=formatter.parse(s_time);
 			Hy hy = new Hy();
 			User user = (User)session.getAttribute("user");
-			hy.setId(Long.valueOf("1"));
+			hy.setId(Long.valueOf("2"));
 			hy.setName(String.valueOf(user.getUserId()));
 			hy.setsTime(date);
 			date = formatter.parse(e_time);
