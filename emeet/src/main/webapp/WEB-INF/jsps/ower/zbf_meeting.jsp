@@ -43,7 +43,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">主办方操作<span class="sr-only">(current)</span></a></li>
-            <li><a href="javascript:void(0);" onclick="add_upload()">会议状态管理</a></li>         
+            <li><a href="javascript:void(0);" onclick="hy_status(${hy.hy_id})">会议状态管理</a></li>         
             <li><a href="javascript:void(0);" onclick="add_vote()" id="tp" name="id">邀请参会人员</a></li>
             <li><a href="javascript:void(0);" onclick="add_register()">发起投票</a></li>
           </ul>
@@ -65,8 +65,16 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 <script>
-  function add_upload(){
-      $("#right").load("ch_meet_upload");
+  function hy_status(){
+	  $.ajax(
+				type:'POST',
+				url:'/getStatus',
+				data: 'hy_id='+hy_id,
+				dataType: "text",
+				success: function(msg){
+					$("right").html(msg);
+				}
+			);
   }
   function add_vote(){
 	  window.location.href="/tpList";
