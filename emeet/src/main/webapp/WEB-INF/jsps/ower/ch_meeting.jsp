@@ -44,9 +44,9 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">参会人员操作<span class="sr-only">(current)</span></a></li>
             <li><a href="javascript:void(0);" onclick="add_upload()">上传资料</a></li>
-            <li><a href="javascript:void(0);" onclick="add_upload()">查看资料</a></li>         
+            <li><a href="javascript:void(0);" onclick="add_upload1()">查看资料</a></li>         
             <li><a href="javascript:void(0);" onclick="add_vote()" id="tp">参与投票</a></li>
-            <li><a href="javascript:void(0);" onclick="add_vote()" >投票记录</a></li>
+            <li><a href="javascript:void(0);" onclick="add_vote1()" >投票记录</a></li>
             <li><a href="javascript:void(0);" onclick="add_register()">签到</a></li>
           </ul>
         </div>
@@ -72,6 +72,9 @@
   }
   function add_vote(){
 	  window.location.href="/tpList";
+  }
+  function add_vote1(){
+	  window.location.href="/tpList_px";
   }
   function add_register(){
 	  $("#right").load("ch_meet_register");

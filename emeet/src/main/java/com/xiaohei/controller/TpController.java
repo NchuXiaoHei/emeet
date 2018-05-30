@@ -24,12 +24,19 @@ public class TpController {
 	public String tp(Model model,HttpSession session) {
 		List<Tp> tpList = new ArrayList<Tp>();
 		List<Tp_jl> tp_jlList = new ArrayList<Tp_jl>();
-		User user = (User)session.getAttribute("user");
-		tp_jlList = voteService.pxVoteList(String.valueOf(user.getUserId()));
-		tpList = voteService.VoteList("2");
-		System.out.println("3333");
+		List<Tp_jl> tp_jlList1 = new ArrayList<Tp_jl>();
+		List<Tp_jl> tp_jlList2 = new ArrayList<Tp_jl>();
+		User user = (User)session.getAttribute("user");		
+		tpList = voteService.VoteList(Long.valueOf("2"));		
+		for(int i=0;i<tpList.size();i++) {
+		tp_jlList = voteService.pxVoteList(Integer.valueOf(tpList.get(i).getTpId()));
+		//if(tp_jlList.get(i).getTpId().equals(tpList.get(i).getTpId())) {
+			
+		//}
+		tp_jlList1.addAll(tp_jlList);  //将此会议编号的所有投票记录加入
+		}				
 		model.addAttribute("list", tpList);
-		model.addAttribute("list1", tp_jlList);
+		model.addAttribute("list1", tp_jlList1);
 		return "particpants/ch_meet_vote";
 		
 	}
@@ -43,12 +50,12 @@ public class TpController {
 		User user = (User)session.getAttribute("user");
 		tp_jl.setUserId(Long.valueOf(user.getUserId()));
 		if(tp_px1.equals("1")) {
-			byte[] bt1= {1};
-		    tp_jl.setPx(bt1);
+			
+		    tp_jl.setPx(Integer.valueOf(1));
 		}
 		if(tp_px1.equals("2")) {
-			byte[] bt2= {0};
-		    tp_jl.setPx(bt2);
+			
+		    tp_jl.setPx(Integer.valueOf(0));
 		}
 		if(voteService.insert(tp_jl)==1) {
 			System.out.println("111111");
@@ -56,5 +63,25 @@ public class TpController {
 			
 		}
 		return "particpants/ch_meet_vote";		
+	}
+	@RequestMapping("/tpList_px")
+	public String tp_px(Model model,HttpSession session) {
+		List<Tp> tpList = new ArrayList<Tp>();
+		List<Tp_jl> tp_jlList = new ArrayList<Tp_jl>();
+		List<Tp_jl> tp_jlList1 = new ArrayList<Tp_jl>();
+		List<Tp_jl> tp_jlList2 = new ArrayList<Tp_jl>();
+		User user = (User)session.getAttribute("user");		
+		tpList = voteService.VoteList(Long.valueOf("2"));		
+		for(int i=0;i<tpList.size();i++) {
+		tp_jlList = voteService.pxVoteList(Integer.valueOf(tpList.get(i).getTpId()));
+		if(tp_jlList.get(i).getTpId().equals(tpList.get(i).getTpId())) {
+			
+		}
+		tp_jlList1.addAll(tp_jlList);  //将此会议编号的所有投票记录加入
+		}				
+		model.addAttribute("list", tpList);
+		model.addAttribute("list1", tp_jlList1);
+		return "particpants/ch_meet_vote_jl";
+		
 	}
 }

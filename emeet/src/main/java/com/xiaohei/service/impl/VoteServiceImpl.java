@@ -20,7 +20,7 @@ public class VoteServiceImpl implements VoteService{
 	TpMapper tpMapper;
 	@Autowired
 	Tp_jlMapper tp_jlmapper;
-	public List<Tp> VoteList(String id) {
+	public List<Tp> VoteList(Long id) {
 		List<Tp> tpList= new ArrayList<Tp>();
 		
 		TpExample tpExample = new TpExample();
@@ -40,13 +40,14 @@ public class VoteServiceImpl implements VoteService{
 		return 1;
 	}
 
-	public List<Tp_jl> pxVoteList(String id) {
+	public List<Tp_jl> pxVoteList(Integer id) {
 		// TODO Auto-generated method stub
 		List<Tp_jl> px_tpList = new ArrayList<Tp_jl>();
 		Tp_jlExample tp_jlExample = new Tp_jlExample();
 		Tp_jlExample.Criteria criteria = tp_jlExample.createCriteria();
 		criteria.andTpIdEqualTo(Integer.valueOf(id));
 		px_tpList = tp_jlmapper.selectByExample(tp_jlExample);
+		
 		return px_tpList;
 	}
 	

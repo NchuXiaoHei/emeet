@@ -52,39 +52,28 @@
             <li><a href="javascript:void(0);" onclick="add_register()">签到</a></li>
           </ul>
         </div>
-        <c:forEach var="vote1" items="${list1}" >  
-          <p>${vote1.px }</p>
-        </c:forEach>          
+        
+                       
         <c:forEach var="vote" items="${list}" >       
         <form action="/savetp" name="Form" method="post">
         
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="right">
 	      
-	      <input type="hidden" name="tp_id" id="optionsRadios1" value="${vote.tpId}"> 
 	      <table class="table table-striped" >
 	            <tr>                
                   <th style="margin-left:200px;">投票信息</th>
-                  <th style="margin-left:200px;">请投票</th>
+                  <th style="margin-left:200px;">投票结果</th>
                 </tr>	      
                 <tr>
 		         <th style="margin-left:200px;">${vote.note }</th>
-		         <th style="margin-left:200px;">
-                 <label class="radio-inline">
-                 <input type="radio" name="tp_px1" id="optionsRadios1" value="1" checked> 赞成
-                 </label>
-                 <label class="radio-inline">
-                 <input type="radio" name="tp_px1" id="optionsRadios2"  value="2" > 反对
-                 </label>
-                 <button  type="submit" style="width:50px;height:30px;">提交</button>
-                 </th>
-       
+		         <th style="margin-left:200px;"> </th>               
 		        </tr>	
 		 </table>
 		 
         </div>
         </form>
         </c:forEach>
-    
+        
   </div>
   </div>
     <!-- Bootstrap core JavaScript
