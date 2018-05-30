@@ -4,6 +4,7 @@ public class Tp_jl_duo {
 	
 	private Integer tpId;
 	
+	private String note;
 	public Integer getTpId() {
 		return tpId;
 	}
@@ -20,6 +21,6 @@ public class Tp_jl_duo {
 		this.note = note;
 	}
 
-	private String note;
+	
 	
 }
