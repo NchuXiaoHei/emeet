@@ -48,7 +48,8 @@
         </javaClientGenerator>
         
 
-        <!-- 表名对应生成的实体 -->      
+        <!-- 表名对应生成的实体 -->
+        <!-- 
         <table tableName="ch_users" domainObjectName="Ch_Users" 
         enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
@@ -81,11 +82,12 @@
         enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
         selectByExampleQueryId="true"/>
-        <table tableName="tp_jl" domainObjectName="Tp_jl" 
+        <table tableName="message" domainObjectName="Message" 
         enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
         selectByExampleQueryId="true"/>
-        <table tableName="message" domainObjectName="Message" 
+         -->
+        <table tableName="tp_jl" domainObjectName="Tp_jl" 
         enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
         selectByExampleQueryId="true"/>

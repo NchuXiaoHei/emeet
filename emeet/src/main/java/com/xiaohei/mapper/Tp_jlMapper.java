@@ -16,19 +16,15 @@ public interface Tp_jlMapper {
 
     int insertSelective(Tp_jl record);
 
-    List<Tp_jl> selectByExampleWithBLOBs(Tp_jlExample example);
-
     List<Tp_jl> selectByExample(Tp_jlExample example);
 
     Tp_jl selectByPrimaryKey(@Param("tpId") Integer tpId, @Param("userId") Long userId);
 
     int updateByExampleSelective(@Param("record") Tp_jl record, @Param("example") Tp_jlExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") Tp_jl record, @Param("example") Tp_jlExample example);
-
     int updateByExample(@Param("record") Tp_jl record, @Param("example") Tp_jlExample example);
 
     int updateByPrimaryKeySelective(Tp_jl record);
 
-    int updateByPrimaryKeyWithBLOBs(Tp_jl record);
+    int updateByPrimaryKey(Tp_jl record);
 }

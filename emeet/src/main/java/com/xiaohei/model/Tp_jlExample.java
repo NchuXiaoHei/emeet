@@ -223,6 +223,66 @@ public class Tp_jlExample {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
+
+        public Criteria andPxIsNull() {
+            addCriterion("px is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxIsNotNull() {
+            addCriterion("px is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxEqualTo(Integer value) {
+            addCriterion("px =", value, "px");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxNotEqualTo(Integer value) {
+            addCriterion("px <>", value, "px");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxGreaterThan(Integer value) {
+            addCriterion("px >", value, "px");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxGreaterThanOrEqualTo(Integer value) {
+            addCriterion("px >=", value, "px");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxLessThan(Integer value) {
+            addCriterion("px <", value, "px");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxLessThanOrEqualTo(Integer value) {
+            addCriterion("px <=", value, "px");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxIn(List<Integer> values) {
+            addCriterion("px in", values, "px");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxNotIn(List<Integer> values) {
+            addCriterion("px not in", values, "px");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxBetween(Integer value1, Integer value2) {
+            addCriterion("px between", value1, value2, "px");
+            return (Criteria) this;
+        }
+
+        public Criteria andPxNotBetween(Integer value1, Integer value2) {
+            addCriterion("px not between", value1, value2, "px");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

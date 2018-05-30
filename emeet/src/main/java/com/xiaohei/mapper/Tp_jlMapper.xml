@@ -4,9 +4,7 @@
   <resultMap id="BaseResultMap" type="com.xiaohei.model.Tp_jl">
     <id column="tp_id" jdbcType="INTEGER" property="tpId" />
     <id column="user_id" jdbcType="DECIMAL" property="userId" />
-  </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xiaohei.model.Tp_jl">
-    <result column="px" jdbcType="BINARY" property="px" />
+    <result column="px" jdbcType="INTEGER" property="px" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,28 +65,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    tp_id, user_id
+    tp_id, user_id, px
   </sql>
-  <sql id="Blob_Column_List">
-    px
-  </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.xiaohei.model.Tp_jlExample" resultMap="ResultMapWithBLOBs">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    'true' as QUERYID,
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from tp_jl
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByExample" parameterType="com.xiaohei.model.Tp_jlExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -104,11 +82,9 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="map" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from tp_jl
     where tp_id = #{tpId,jdbcType=INTEGER}
       and user_id = #{userId,jdbcType=DECIMAL}
@@ -127,7 +103,7 @@
   <insert id="insert" parameterType="com.xiaohei.model.Tp_jl">
     insert into tp_jl (tp_id, user_id, px
       )
-    values (#{tpId,jdbcType=INTEGER}, #{userId,jdbcType=DECIMAL}, #{px,jdbcType=BINARY}
+    values (#{tpId,jdbcType=INTEGER}, #{userId,jdbcType=DECIMAL}, #{px,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.xiaohei.model.Tp_jl">
@@ -151,7 +127,7 @@
         #{userId,jdbcType=DECIMAL},
       </if>
       <if test="px != null">
-        #{px,jdbcType=BINARY},
+        #{px,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -171,18 +147,9 @@
         user_id = #{record.userId,jdbcType=DECIMAL},
       </if>
       <if test="record.px != null">
-        px = #{record.px,jdbcType=BINARY},
+        px = #{record.px,jdbcType=INTEGER},
       </if>
     </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map">
-    update tp_jl
-    set tp_id = #{record.tpId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=DECIMAL},
-      px = #{record.px,jdbcType=BINARY}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -190,7 +157,8 @@
   <update id="updateByExample" parameterType="map">
     update tp_jl
     set tp_id = #{record.tpId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=DECIMAL}
+      user_id = #{record.userId,jdbcType=DECIMAL},
+      px = #{record.px,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -199,15 +167,15 @@
     update tp_jl
     <set>
       <if test="px != null">
-        px = #{px,jdbcType=BINARY},
+        px = #{px,jdbcType=INTEGER},
       </if>
     </set>
     where tp_id = #{tpId,jdbcType=INTEGER}
       and user_id = #{userId,jdbcType=DECIMAL}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xiaohei.model.Tp_jl">
+  <update id="updateByPrimaryKey" parameterType="com.xiaohei.model.Tp_jl">
     update tp_jl
-    set px = #{px,jdbcType=BINARY}
+    set px = #{px,jdbcType=INTEGER}
     where tp_id = #{tpId,jdbcType=INTEGER}
       and user_id = #{userId,jdbcType=DECIMAL}
   </update>

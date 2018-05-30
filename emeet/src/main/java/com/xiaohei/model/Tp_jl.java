@@ -1,13 +1,11 @@
 package com.xiaohei.model;
 
-import java.util.Arrays;
-
 public class Tp_jl {
     private Integer tpId;
 
     private Long userId;
 
-    private byte[] px;
+    private Integer px;
 
     public Integer getTpId() {
         return tpId;
@@ -25,11 +23,11 @@ public class Tp_jl {
         this.userId = userId;
     }
 
-    public byte[] getPx() {
+    public Integer getPx() {
         return px;
     }
 
-    public void setPx(byte[] px) {
+    public void setPx(Integer px) {
         this.px = px;
     }
 
@@ -47,7 +45,7 @@ public class Tp_jl {
         Tp_jl other = (Tp_jl) that;
         return (this.getTpId() == null ? other.getTpId() == null : this.getTpId().equals(other.getTpId()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
-            && (Arrays.equals(this.getPx(), other.getPx()));
+            && (this.getPx() == null ? other.getPx() == null : this.getPx().equals(other.getPx()));
     }
 
     @Override
@@ -56,7 +54,7 @@ public class Tp_jl {
         int result = 1;
         result = prime * result + ((getTpId() == null) ? 0 : getTpId().hashCode());
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
-        result = prime * result + (Arrays.hashCode(getPx()));
+        result = prime * result + ((getPx() == null) ? 0 : getPx().hashCode());
         return result;
     }
 }
