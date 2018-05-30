@@ -36,34 +36,56 @@
   </head>
 
   <body>
-
+    <%Long user_id = (Long)session.getAttribute("userId"); %>
     <jsp:include page="../navbar.jsp"></jsp:include><!-- 引入导航框架文件 -->
-	<div style="height:200px"><img src="test.jpg" style="min-width: 100%"></img></div>
+	<div style="height:200px"><img src="../resources/img/3.jpg" style="min-width: 100%" ></img></div>
     <div class="container-fluid">
     
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">参会人员操作<span class="sr-only">(current)</span></a></li>
-            <li><a href="javascript:void(0);" onclick="add_upload()">上传资料</a></li>         
+            <li><a href="javascript:void(0);" onclick="add_upload()">上传资料</a></li>
+            <li><a href="javascript:void(0);" onclick="add_upload()">查看资料</a></li>         
             <li><a href="javascript:void(0);" onclick="add_vote()" id="tp">参与投票</a></li>
+            <li><a href="javascript:void(0);" onclick="add_vote()" >投票记录</a></li>
             <li><a href="javascript:void(0);" onclick="add_register()">签到</a></li>
           </ul>
         </div>
+        <%int i = 0; %>
+        <c:forEach var="vote1" items="${list}" >
+        <p>${vote1.tpId}</p>
+        </c:forEach>
+        <c:forEach var="vote" items="${list}" >
+        
+        <%i++; %>
+        <form action="/savetp" name="Form" method="post">
+        
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="right">
-	      <c:forEach var="vote" items="${list}" >
+	      
+	      <input type="hidden" name="tp_id" id="optionsRadios1" value="${vote.tpId}"> 
 	      <table class="table table-striped" >
                 <tr>                
                   <th style="margin-left:200px;">投票信息</th>
-                  <th style="margin-left:200px;">投票</th>
+                  <th style="margin-left:200px;">请投票</th>
                 </tr>
                 <tr>
-		         <th style="margin-left:200px;">${vote.note }</th>
-		         <th style="margin-left:200px;">${vote.px }</th>
-		  </tr>	
+		         <th style="margin-left:200px;">${vote.note } </th>
+		         <th style="margin-left:200px;">
+                 <label class="radio-inline">
+                 <input type="radio" name="tp_px1" id="optionsRadios1" value="1" checked> 赞成
+                 </label>
+                 <label class="radio-inline">
+                 <input type="radio" name="tp_px1" id="optionsRadios2"  value="2" > 反对
+                 </label>
+                 <button  type="submit" style="width:50px;height:30px;">提交</button>
+                 </th>
+		        </tr>	
 		 </table>
-		 </c:forEach>
+		 
         </div>
+        </form>
+        </c:forEach>
   </div>
   </div>
     <!-- Bootstrap core JavaScript

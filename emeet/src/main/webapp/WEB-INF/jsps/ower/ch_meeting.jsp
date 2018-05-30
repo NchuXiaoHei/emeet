@@ -34,7 +34,7 @@
   </head>
 
   <body>
-
+    <%Long user_id = (Long)session.getAttribute("userId"); %>
     <jsp:include page="../navbar.jsp"></jsp:include><!-- 引入导航框架文件 -->
 	<div style="height:200px"><img src="test.jpg" style="min-width: 100%"></img></div>
     <div class="container-fluid">
@@ -43,8 +43,10 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">参会人员操作<span class="sr-only">(current)</span></a></li>
-            <li><a href="javascript:void(0);" onclick="add_upload()">上传资料</a></li>         
-            <li><a href="javascript:void(0);" onclick="add_vote()" id="tp" name="id">参与投票</a></li>
+            <li><a href="javascript:void(0);" onclick="add_upload()">上传资料</a></li>
+            <li><a href="javascript:void(0);" onclick="add_upload()">查看资料</a></li>         
+            <li><a href="javascript:void(0);" onclick="add_vote()" id="tp">参与投票</a></li>
+            <li><a href="javascript:void(0);" onclick="add_vote()" >投票记录</a></li>
             <li><a href="javascript:void(0);" onclick="add_register()">签到</a></li>
           </ul>
         </div>

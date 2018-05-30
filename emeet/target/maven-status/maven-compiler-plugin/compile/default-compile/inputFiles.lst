@@ -2,11 +2,13 @@ C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\mapper\ZbfMapper.
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\HyExample.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Tp.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\service\impl\UploadServicelmpl.java
+C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Message.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Hy_jlExample.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Hy.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Zl.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Zbf.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\service\UserService.java
+C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Tp_jl.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\mapper\HyMapper.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\mapper\ZlMapper.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\LcExample.java
@@ -14,6 +16,7 @@ C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\UserExample
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\ZlExample.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Lc.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\TpExample.java
+C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Tp_jlExample.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\service\impl\VoteServiceImpl.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\controller\UploadController.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\service\MeetUpService.java
@@ -30,8 +33,11 @@ C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\mapper\Ch_UsersMa
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\mapper\Hy_jlMapper.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Ch_UsersExample.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\service\impl\MeetUpServiceImpl.java
+C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\mapper\MessageMapper.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\controller\TpController.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\mapper\TpMapper.java
+C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\MessageExample.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\model\Hy_jl.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\mapper\UserMapper.java
 C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\controller\MeetUpController.java
+C:\Users\12851\git\emeet\emeet\emeet\src\main\java\com\xiaohei\mapper\Tp_jlMapper.java

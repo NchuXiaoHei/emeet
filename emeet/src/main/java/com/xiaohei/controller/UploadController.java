@@ -24,7 +24,7 @@ public class UploadController {
 			@RequestParam("zl_id") String zl_id,
 	        @RequestParam("note") String note,
 	        @RequestParam("file_path") String file_path) throws ParseException{
-		System.out.println("111111");
+		
 		Zl zl =new Zl();
 		User user = (User)session.getAttribute("user");
 		zl.setZlId(Integer.valueOf(zl_id));
@@ -33,7 +33,7 @@ public class UploadController {
 		zl.setFilePath(String.valueOf(file_path));
 		
 		if(uploadService.insert(zl)==1) {
-			System.out.println("111111");
+			
 			return "xxx";
 			
 		}
