@@ -15,4 +15,12 @@ public interface VoteService {
 	public List<Tp> VoteList(Long id);
 	public int insert(Tp_jl record);
 	public List<Tp_jl> pxVoteList(Integer id);
+	
+	/*
+	 * 主办方添加投票*/
+	public int VoteInsert(Tp record);
+	
+	/*
+	 * 删除投票*/
+	public int VoteDelete(Long hy_id, Integer tp_id);
 }

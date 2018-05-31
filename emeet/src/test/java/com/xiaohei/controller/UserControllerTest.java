@@ -1,4 +1,4 @@
-package com.xiaohei.action;
+package com.xiaohei.controller;
 
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -29,10 +29,10 @@ import com.xiaohei.controller.UserController;
 @WebAppConfiguration(value = "src/main/webapp")
 @ContextConfiguration({"classpath*:mvc-dispatcher-servlet.xml","classpath*:applicationContext*.xml","classpath*:applicationContext-service.xml"})
 
-//ÊÂÎñ»Ø¹ö
+//ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½
 @TransactionConfiguration(defaultRollback = true)  
 @Transactional
-public class UserActionTest {
+public class UserControllerTest {
 	@Autowired
 	private WebApplicationContext wac;
 	private MockMvc mockMvc;

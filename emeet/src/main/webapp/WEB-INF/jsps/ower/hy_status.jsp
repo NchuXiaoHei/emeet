@@ -4,7 +4,7 @@
 	<button id="hy_stop" name="hy_stop" onclick="meet_end(${hy.hy_id},"已结束")">结束会议</button>
 </div>
 
-<script>
+<script type="text/javascript">
 	function meet_start(var hy_id, var status){
 		$.ajax(
 			type:'POST',
@@ -12,7 +12,7 @@
 			data: 'hy_id='+hy_id+'&status='+status,
 			dataType: "text",
 			success: function(msg){
-				$("right").html(msg);
+				$("#right").html(msg);
 			}
 		);
 	}
@@ -24,7 +24,7 @@
 			data: 'hy_id='+hy_id+'&status='+status,
 			dataType: "text",
 			success: function(msg){
-				$("right").html(msg);
+				$("#right").html(msg);
 			}
 		);
 	}

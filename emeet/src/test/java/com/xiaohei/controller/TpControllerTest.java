@@ -1,13 +1,12 @@
-package com.xiaohei.action;
+package com.xiaohei.controller;
 
 import static org.junit.Assert.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 import javax.servlet.ServletContext;
-
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,10 +21,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.xiaohei.controller.MeetStatusController;
-import com.xiaohei.controller.UserController;
-
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration(value = "src/main/webapp")
 @ContextConfiguration({"classpath*:mvc-dispatcher-servlet.xml","classpath*:applicationContext*.xml","classpath*:applicationContext-service.xml"})
@@ -33,41 +28,59 @@ import com.xiaohei.controller.UserController;
 //����ع�
 @TransactionConfiguration(defaultRollback = true)  
 @Transactional
-public class MeetStatusActionTest {
+public class TpControllerTest {
 	@Autowired
 	private WebApplicationContext wac;
 	private MockMvc mockMvc;
 	
 	
 	@Autowired
-	MeetStatusController meetStatusAction;
+	TpController tpController;
 	@Autowired
 	ServletContext context;
 
 	@Before
 	public void setUp() {
-		mockMvc = MockMvcBuilders.standaloneSetup(meetStatusAction).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(tpController).build();
 	}
 	
 	@Test
-	public void testGetMeetStatus() throws Exception {
+	public void testVoteUp() throws Exception {
 		assertNotNull(mockMvc);
-		mockMvc.perform((post("/getStatus"))
-				.param("hy_id", "1")
+		mockMvc.perform((post("/vote_up"))
+				.param("hy_id", "2")
+				.param("note", "投票测试")
 				)
 		.andExpect(status().isOk())
 		.andDo(print());
 	}
 	
 	@Test
-	public void testUpdateStatus() throws Exception {
+	public void testVoteDown() throws Exception {
 		assertNotNull(mockMvc);
-		mockMvc.perform((post("/updateStatus"))
-				.param("hy_id", "1")
-				.param("status", "进行中")
+		mockMvc.perform((get("/voteDown"))
+				.param("hy_id", "2")
+				.param("tp_id", "1")
 				)
 		.andExpect(status().isOk())
 		.andDo(print());
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

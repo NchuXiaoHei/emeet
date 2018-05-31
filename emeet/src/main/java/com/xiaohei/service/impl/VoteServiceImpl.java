@@ -50,5 +50,17 @@ public class VoteServiceImpl implements VoteService{
 		
 		return px_tpList;
 	}
+
+	public int VoteInsert(Tp record) {
+		// TODO Auto-generated method stub
+		tpMapper.insert(record);
+		return 0;
+	}
+
+	public int VoteDelete(Long hy_id, Integer tp_id) {
+		// TODO Auto-generated method stub
+		tpMapper.deleteByPrimaryKey(hy_id, tp_id);
+		return 0;
+	}
 	
 }

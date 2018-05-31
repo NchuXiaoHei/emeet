@@ -84,4 +84,40 @@ public class TpController {
 		return "particpants/ch_meet_vote_jl";
 		
 	}
+	
+	@RequestMapping("/vote_up")
+	public String voteUp(Model model,@RequestParam("note") String note,@RequestParam("hy_id") String hy_id) {
+		Tp tp = new Tp();
+		tp.setId(Long.valueOf(hy_id));
+		tp.setNote(note);
+		tp.setTpId(2);
+		model.addAttribute("voteList", voteService.VoteList(Long.valueOf(hy_id)));
+		return "ower/voteUp";
+	}
+	
+	
+	@RequestMapping("/voteDown")
+	public String voteDoen(Model model,@RequestParam("hy_id") String hy_id,
+			@RequestParam("tp_id") String tp_id) {
+		//System.out.println("+"+hy_id);
+		voteService.VoteDelete(Long.valueOf(hy_id), Integer.valueOf(tp_id));
+		model.addAttribute("voteList", voteService.VoteList(Long.valueOf(hy_id)));
+		return "ower/voteUp";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
