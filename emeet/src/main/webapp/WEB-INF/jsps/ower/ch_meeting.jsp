@@ -70,6 +70,9 @@
   function add_upload(){
       $("#right").load("ch_meet_upload");
   }
+  function add_upload1(){
+	  window.location.href="/zlList";
+  }
   function add_vote(){
 	  window.location.href="/tpList";
   }
@@ -77,7 +80,7 @@
 	  window.location.href="/tpList_px";
   }
   function add_register(){
-	  $("#right").load("ch_meet_register");
+	  window.location.href="/zxingcoder";
   }
 </script>
 </html>

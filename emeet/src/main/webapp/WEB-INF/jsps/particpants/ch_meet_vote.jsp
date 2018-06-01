@@ -46,15 +46,12 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">参会人员操作<span class="sr-only">(current)</span></a></li>
             <li><a href="javascript:void(0);" onclick="add_upload()">上传资料</a></li>
-            <li><a href="javascript:void(0);" onclick="add_upload()">查看资料</a></li>         
+            <li><a href="javascript:void(0);" onclick="add_upload1()">查看资料</a></li>         
             <li><a href="javascript:void(0);" onclick="add_vote()" id="tp">参与投票</a></li>
             <li><a href="javascript:void(0);" onclick="add_vote1()" >投票记录</a></li>
             <li><a href="javascript:void(0);" onclick="add_register()">签到</a></li>
           </ul>
-        </div>
-        <c:forEach var="vote1" items="${list1}" >  
-          <p>${vote1.px }</p>
-        </c:forEach>          
+        </div>              
         <c:forEach var="vote" items="${list}" >       
         <form action="/savetp" name="Form" method="post">
         
@@ -101,6 +98,9 @@
   function add_upload(){
       $("#right").load("../ower/ch_meet_upload");
   }
+  function add_upload1(){
+	  window.location.href="/zlList";
+  }
   function add_vote(){
 	  window.location.href="/tpList";
   }
@@ -108,6 +108,6 @@
 	  window.location.href="/tpList_px";
   }
   function add_register(){
-	  $("#right").load("ch_meet_register");
+	  window.location.href="/zxingcoder";
   }
 </script>

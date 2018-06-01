@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.xiaohei.mapper.TpMapper;
 import com.xiaohei.mapper.Tp_jlMapper;
+
 import com.xiaohei.model.Tp;
 import com.xiaohei.model.TpExample;
 import com.xiaohei.model.Tp_jl;
 import com.xiaohei.model.Tp_jlExample;
+
 import com.xiaohei.service.VoteService;
 
 @Service("voteService")
@@ -20,6 +22,7 @@ public class VoteServiceImpl implements VoteService{
 	TpMapper tpMapper;
 	@Autowired
 	Tp_jlMapper tp_jlmapper;
+	
 	public List<Tp> VoteList(Long id) {
 		List<Tp> tpList= new ArrayList<Tp>();
 		
