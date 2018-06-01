@@ -61,7 +61,7 @@
 	  	 <div class="col-md-6" align="center">
         
         <img class="img-responsive img-rounded" src="${vote}"/>
-        <b class="btn btn-success" >我要解码</b>
+        <b class="btn btn-success" >我要解</b>
         
         </div>
         </div>
