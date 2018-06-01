@@ -26,7 +26,7 @@
 			type: 'post',
 			dataType: "text",
 			data: "note="+$("#note").val()+"&hy_id="+hy_id,
-			url: '/vote_up',
+			url: '/voteUp',
 			success: function(msg){
 				$("#right").html(msg);
 			}

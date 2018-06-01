@@ -46,8 +46,9 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">主办方操作<span class="sr-only">(current)</span></a></li>
             <li><a href="javascript:void(0);" onclick="hy_status(${hy.hy_id})">会议状态管理</a></li>         
-            <li><a href="javascript:void(0);" onclick="add_vote()" id="tp" name="id">邀请参会人员</a></li>
-            <li><a href="javascript:void(0);" onclick="voteUp()">投票管理</a></li>
+            <li><a href="javascript:void(0);" onclick="ch_users(${hy.hy_id})" id="tp" name="id">邀请参会人员</a></li>
+            <li><a href="javascript:void(0);" onclick="vote(${hy.hy_id})">投票管理</a></li>
+            <li><a href="javascript:void(0);" onclick="hy_lc(${hy.hy_id})">会议流程管理</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="right">
@@ -67,7 +68,7 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 <script type="text/javascript">
-  function hy_status(){
+  function hy_status(var hy_id){
 	  $.ajax(
 				type:'POST',
 				url:'/getStatus',
@@ -78,11 +79,39 @@
 				}
 			);
   }
-  function add_vote(){
-	  window.location.href="/tpList";
+  function ch_users(var hy_id){
+	 $.ajax(
+				type: 'POST',
+				dataType: "text",
+				data: "hy_id="+hy_id,
+				url: '/ch_users',
+				success: function(msg){
+					$("#right").html(msg);
+				}
+			);
   }
-  function voteUp(){
-	  $("#right").load("voteUp");
+  function vote(var hy_id){
+	  $.ajax(
+				type: 'POST',
+				dataType: "text",
+				data: "hy_id="+hy_id,
+				url: '/voteList',
+				success: function(msg){
+					$("#right").html(msg);
+				}
+			);
+  }
+  
+  function hy_lc(var hy_id){
+	  $.ajax(
+			  	type: 'POST',
+				dataType: "text",
+				data: "hy_id="+hy_id,
+				url: '/hy_lc',
+				success: function(msg){
+					$("#right").html(msg);
+				}	  
+	  );
   }
 </script>
 </html>

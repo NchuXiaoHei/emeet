@@ -85,7 +85,13 @@ public class TpController {
 		
 	}
 	
-	@RequestMapping("/vote_up")
+	@RequestMapping("/voteList")
+	public String voteList(Model model,@RequestParam("hy_id") String hy_id) {
+		model.addAttribute("voteList", voteService.VoteList(Long.valueOf(hy_id)));
+		return "ower/voteUp";
+	}
+	
+	@RequestMapping("/voteUp")
 	public String voteUp(Model model,@RequestParam("note") String note,@RequestParam("hy_id") String hy_id) {
 		Tp tp = new Tp();
 		tp.setId(Long.valueOf(hy_id));
