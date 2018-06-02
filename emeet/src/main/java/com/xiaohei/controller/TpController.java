@@ -29,15 +29,20 @@ public class TpController {
 		List<Tp> tpList1 = new ArrayList<Tp>();
 		tpList = voteService.VoteList(Long.valueOf("2"));	
 		User user = (User)session.getAttribute("user");
-		System.out.println("****"+user.getUserId());
-		
+		System.out.println("****"+user.getUserId());		
 		tp_jlList = voteService.hyVoteList(Long.valueOf(user.getUserId()));
+		if(tp_jlList.size()>0) {
 		for(int i=0;i<tp_jlList.size();i++) {
 			list.add(tp_jlList.get(i).getTpId());
-		}		
+		}	
 		tpList1 = voteService.notin_Tp(list);
+		model.addAttribute("list1", tpList1);
+		}
+		else
+		{
 		model.addAttribute("list", tpList);
 		model.addAttribute("list1", tpList1);
+		}
 		return "particpants/ch_meet_vote";
 		
 	}

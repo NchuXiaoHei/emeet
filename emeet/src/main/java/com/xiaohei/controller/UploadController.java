@@ -40,6 +40,7 @@ public class UploadController {
 		zl.setId(Long.valueOf("2"));
 		zl.setNote(String.valueOf(note));
 		zl.setFilePath("resources/zl/"+files.toString());		
+
 		if (uploadService.insert(zl) == 1) {
 			//文件上传操作
 			String path = request.getSession().getServletContext().getRealPath("WEB-INF/resources/zl");
