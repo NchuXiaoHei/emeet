@@ -30,7 +30,7 @@ public class TpController {
 		tpList = voteService.VoteList(Long.valueOf("2"));	
 		User user = (User)session.getAttribute("user");
 		System.out.println("****"+user.getUserId());
-		if()
+		
 		tp_jlList = voteService.hyVoteList(Long.valueOf(user.getUserId()));
 		for(int i=0;i<tp_jlList.size();i++) {
 			list.add(tp_jlList.get(i).getTpId());
