@@ -14,23 +14,12 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">首页</a></li>
-                <li><a href="#about">会议</a></li>
-                <li><a href="#contact">个人</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
+                <li class="active"><a href="/">首页</a></li>
+                <li><a href="/meetUpJsp">发起会议</a></li>
+                
               </ul>
-              <div style="display:table;width:500px; margin-top:12px;float:right">
+              <!-- 
+              	<div style="display:table;width:500px; margin-top:12px;float:right">
               	 <div class="input-group" style="width:50%">
 					<input type="text" class="form-control">
 					<span class="input-group-btn">
@@ -40,8 +29,13 @@
 						</button>
 					</span>
 				</div><!-- /input-group -->
+               <div style="float:right;margin-right:100px;margin-top:20px">
+                <a href="#" style="float:right;color:WHITE">注册</a>
+              
+              	<a href="#" style="float:right;color:WHITE">登录  丨   </a>
               </div>
-             <a href="#" style="float:right">登录/注册</a>
+              
+              </div>          
             </div>
           </div>
         </nav>

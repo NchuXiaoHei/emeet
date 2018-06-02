@@ -27,7 +27,7 @@ public class UploadController {
 		
 		Zl zl =new Zl();
 		User user = (User)session.getAttribute("user");
-		zl.setZlId(Integer.valueOf(zl_id));
+		zl.setZlId(zl_id);
 		zl.setId(Long.valueOf("2"));
 		zl.setNote(String.valueOf(note));
 		zl.setFilePath(String.valueOf(file_path));

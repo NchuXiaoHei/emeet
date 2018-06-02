@@ -1,7 +1,7 @@
 package com.xiaohei.model;
 
 public class Zl {
-    private Integer zlId;
+    private String zlId;
 
     private Long id;
 
@@ -9,12 +9,12 @@ public class Zl {
 
     private String filePath;
 
-    public Integer getZlId() {
+    public String getZlId() {
         return zlId;
     }
 
-    public void setZlId(Integer zlId) {
-        this.zlId = zlId;
+    public void setZlId(String zlId) {
+        this.zlId = zlId == null ? null : zlId.trim();
     }
 
     public Long getId() {

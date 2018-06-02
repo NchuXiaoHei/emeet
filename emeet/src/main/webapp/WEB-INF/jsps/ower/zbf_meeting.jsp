@@ -38,7 +38,7 @@
   <body>
 
     <jsp:include page="../navbar.jsp"></jsp:include><!-- 引入导航框架文件 -->
-	<div style="height:200px"><img src="test.jpg" style="min-width: 100%"></img></div>
+	<div style="height:200px"><img src="${hy.pirture1 }" style="min-width: 100%"></img></div>
     <div class="container-fluid">
     
       <div class="row">
@@ -107,7 +107,7 @@
 			  	type: 'POST',
 				dataType: "text",
 				data: "hy_id="+hy_id,
-				url: '/hy_lc',
+				url: '/getLc',
 				success: function(msg){
 					$("#right").html(msg);
 				}	  

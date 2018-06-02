@@ -114,52 +114,62 @@ public class ZlExample {
             return (Criteria) this;
         }
 
-        public Criteria andZlIdEqualTo(Integer value) {
+        public Criteria andZlIdEqualTo(String value) {
             addCriterion("zl_id =", value, "zlId");
             return (Criteria) this;
         }
 
-        public Criteria andZlIdNotEqualTo(Integer value) {
+        public Criteria andZlIdNotEqualTo(String value) {
             addCriterion("zl_id <>", value, "zlId");
             return (Criteria) this;
         }
 
-        public Criteria andZlIdGreaterThan(Integer value) {
+        public Criteria andZlIdGreaterThan(String value) {
             addCriterion("zl_id >", value, "zlId");
             return (Criteria) this;
         }
 
-        public Criteria andZlIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andZlIdGreaterThanOrEqualTo(String value) {
             addCriterion("zl_id >=", value, "zlId");
             return (Criteria) this;
         }
 
-        public Criteria andZlIdLessThan(Integer value) {
+        public Criteria andZlIdLessThan(String value) {
             addCriterion("zl_id <", value, "zlId");
             return (Criteria) this;
         }
 
-        public Criteria andZlIdLessThanOrEqualTo(Integer value) {
+        public Criteria andZlIdLessThanOrEqualTo(String value) {
             addCriterion("zl_id <=", value, "zlId");
             return (Criteria) this;
         }
 
-        public Criteria andZlIdIn(List<Integer> values) {
+        public Criteria andZlIdLike(String value) {
+            addCriterion("zl_id like", value, "zlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andZlIdNotLike(String value) {
+            addCriterion("zl_id not like", value, "zlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andZlIdIn(List<String> values) {
             addCriterion("zl_id in", values, "zlId");
             return (Criteria) this;
         }
 
-        public Criteria andZlIdNotIn(List<Integer> values) {
+        public Criteria andZlIdNotIn(List<String> values) {
             addCriterion("zl_id not in", values, "zlId");
             return (Criteria) this;
         }
 
-        public Criteria andZlIdBetween(Integer value1, Integer value2) {
+        public Criteria andZlIdBetween(String value1, String value2) {
             addCriterion("zl_id between", value1, value2, "zlId");
             return (Criteria) this;
         }
 
-        public Criteria andZlIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andZlIdNotBetween(String value1, String value2) {
             addCriterion("zl_id not between", value1, value2, "zlId");
             return (Criteria) this;
         }

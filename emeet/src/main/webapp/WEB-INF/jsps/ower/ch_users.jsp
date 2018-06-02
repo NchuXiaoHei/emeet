@@ -1,4 +1,4 @@
-	已邀请：
+	<p>已邀请：</p>
 	<table>
 		<tr>                
            <th style="margin-left:200px;">姓名</th>
@@ -11,12 +11,26 @@
 	</table>
 	
 	
-	请选择：
+	<p>请选择：</p>
 	<div id="ch_users">
-		<form action="add_ch_user">
+		<form>
 			<input type="hidden" id="hy_id" name="hy_id" value="${hy.hy_id }"></input>
 			<input id="user_id" name="user_id" type="text" placeholder="输入用户名"></input>
 			<input id="type" name="type" placeholder="输入此人角色"></input>
-			<input type="submit" text="确定"/>
+			<button onclick="add_ch_user()" text="确定"/>
 		</form>
 	</div>
+	
+	<script type="text/javascript">
+	function add_ch_user(){
+		$.ajax(
+			type:'POST',
+			url:'/add_ch_user',
+			data: 'hy_id='+hy_id+'&user_id='+$("#user_id").val()+'&type='+$("#type").val(),
+			dataType: "text",
+			success: function(msg){
+				$("#right").html(msg);
+			}
+		);
+	}
+	</script>

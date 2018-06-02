@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xiaohei.mapper.ZlMapper">
   <resultMap id="BaseResultMap" type="com.xiaohei.model.Zl">
-    <id column="zl_id" jdbcType="INTEGER" property="zlId" />
+    <id column="zl_id" jdbcType="VARCHAR" property="zlId" />
     <id column="ID" jdbcType="DECIMAL" property="id" />
     <result column="note" jdbcType="VARCHAR" property="note" />
   </resultMap>
@@ -111,12 +111,12 @@
     ,
     <include refid="Blob_Column_List" />
     from zl
-    where zl_id = #{zlId,jdbcType=INTEGER}
+    where zl_id = #{zlId,jdbcType=VARCHAR}
       and ID = #{id,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="map">
     delete from zl
-    where zl_id = #{zlId,jdbcType=INTEGER}
+    where zl_id = #{zlId,jdbcType=VARCHAR}
       and ID = #{id,jdbcType=DECIMAL}
   </delete>
   <delete id="deleteByExample" parameterType="com.xiaohei.model.ZlExample">
@@ -128,7 +128,7 @@
   <insert id="insert" parameterType="com.xiaohei.model.Zl">
     insert into zl (zl_id, ID, note, 
       file_path)
-    values (#{zlId,jdbcType=INTEGER}, #{id,jdbcType=DECIMAL}, #{note,jdbcType=VARCHAR}, 
+    values (#{zlId,jdbcType=VARCHAR}, #{id,jdbcType=DECIMAL}, #{note,jdbcType=VARCHAR}, 
       #{filePath,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xiaohei.model.Zl">
@@ -149,7 +149,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="zlId != null">
-        #{zlId,jdbcType=INTEGER},
+        #{zlId,jdbcType=VARCHAR},
       </if>
       <if test="id != null">
         #{id,jdbcType=DECIMAL},
@@ -172,7 +172,7 @@
     update zl
     <set>
       <if test="record.zlId != null">
-        zl_id = #{record.zlId,jdbcType=INTEGER},
+        zl_id = #{record.zlId,jdbcType=VARCHAR},
       </if>
       <if test="record.id != null">
         ID = #{record.id,jdbcType=DECIMAL},
@@ -190,7 +190,7 @@
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update zl
-    set zl_id = #{record.zlId,jdbcType=INTEGER},
+    set zl_id = #{record.zlId,jdbcType=VARCHAR},
       ID = #{record.id,jdbcType=DECIMAL},
       note = #{record.note,jdbcType=VARCHAR},
       file_path = #{record.filePath,jdbcType=LONGVARCHAR}
@@ -200,7 +200,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update zl
-    set zl_id = #{record.zlId,jdbcType=INTEGER},
+    set zl_id = #{record.zlId,jdbcType=VARCHAR},
       ID = #{record.id,jdbcType=DECIMAL},
       note = #{record.note,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -217,20 +217,20 @@
         file_path = #{filePath,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where zl_id = #{zlId,jdbcType=INTEGER}
+    where zl_id = #{zlId,jdbcType=VARCHAR}
       and ID = #{id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xiaohei.model.Zl">
     update zl
     set note = #{note,jdbcType=VARCHAR},
       file_path = #{filePath,jdbcType=LONGVARCHAR}
-    where zl_id = #{zlId,jdbcType=INTEGER}
+    where zl_id = #{zlId,jdbcType=VARCHAR}
       and ID = #{id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xiaohei.model.Zl">
     update zl
     set note = #{note,jdbcType=VARCHAR}
-    where zl_id = #{zlId,jdbcType=INTEGER}
+    where zl_id = #{zlId,jdbcType=VARCHAR}
       and ID = #{id,jdbcType=DECIMAL}
   </update>
 </mapper>

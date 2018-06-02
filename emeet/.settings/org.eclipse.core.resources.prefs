@@ -6,6 +6,7 @@ encoding//src/main/webapp/WEB-INF/jsps/login.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsps/navbar.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsps/ower/ch_users.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsps/ower/hy_status.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsps/ower/lc.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsps/ower/meetUp.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsps/ower/test.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsps/ower/voteUp.jsp=UTF-8

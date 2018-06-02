@@ -26,14 +26,12 @@ public class Ch_UsersController {
 			@RequestParam("user_id") String user_id,
 			@RequestParam("type") String type) {
 		Ch_Users record = new Ch_Users();
-		if(type==null) {
-			type="普通";
-		}
 		record.setId(Long.valueOf(hy_id));
 		record.setStatus("未签到");
 		record.setType(type);
 		record.setUserId(Long.valueOf(user_id));
 		ch_UserService.insert(record);
+		model.addAttribute("ch_users", ch_UserService.getList(Long.valueOf(hy_id)));
 		return "ower/ch_users";
 	}
 }

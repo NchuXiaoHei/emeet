@@ -49,7 +49,7 @@
 				<li><a href="#">首页</a></li>
 				<li><a href="#">时间</a></li>
 				<li><a href="#">地点</a></li>
-				<li><a href="/add_ch_user" style="backgroud-color:GREEN"></a></li>
+				<li><a href="javascript:void(0)" onclick="ch(${hy.id,}, ${user.userId })" style="backgroud-color:GREEN"></a></li>
 			</ul>
 		</div>
 		<!-- 内容区 -->
@@ -74,6 +74,24 @@
 			<p>${hy.address }</p>
 		</div>
 	</div>
-	
 </body>
+<script type="text/javascript">
+	function ch(var hy_id, var user_id){
+		$.ajax(
+			type:'POST',
+			url:'/add_ch_user',
+			data: 'hy_id='+hy_id+'&user_id='+$("#user_id").val()+'&type=普通',
+			dataType: "text",
+			success: function(msg){
+				$("#right").html(msg);
+			}
+		);
+	}
+</script>
+
+
+
+
+
+
 </html>
