@@ -52,7 +52,7 @@
             <li><a href="javascript:void(0);" onclick="add_register()">签到</a></li>
           </ul>
         </div>              
-        <c:forEach var="vote" items="${list1}" >       
+        <c:forEach var="vote" items="${list}" >       
         <form action="/savetp" name="Form" method="post">
         
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="right">

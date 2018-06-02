@@ -29,11 +29,13 @@ public class TpController {
 		List<Tp> tpList1 = new ArrayList<Tp>();
 		tpList = voteService.VoteList(Long.valueOf("2"));	
 		User user = (User)session.getAttribute("user");
+		System.out.println("****"+user.getUserId());
+		if()
 		tp_jlList = voteService.hyVoteList(Long.valueOf(user.getUserId()));
 		for(int i=0;i<tp_jlList.size();i++) {
 			list.add(tp_jlList.get(i).getTpId());
 		}		
-		tpList1 = voteService.notin_Tp(list);		
+		tpList1 = voteService.notin_Tp(list);
 		model.addAttribute("list", tpList);
 		model.addAttribute("list1", tpList1);
 		return "particpants/ch_meet_vote";
@@ -58,15 +60,35 @@ public class TpController {
 		if(voteService.insert(tp_jl)==1) {
 			List<Tp> tpList = new ArrayList<Tp>();
 			List<Tp_jl> tp_jlList = new ArrayList<Tp_jl>();
-			List<Tp_jl> tp_jlList1 = new ArrayList<Tp_jl>();	
-			tpList = voteService.VoteList(Long.valueOf("2"));
-			tpList = voteService.VoteList(Long.valueOf("2"));		
+			List<Tp_jl> tp_jlList1 = new ArrayList<Tp_jl>();
+			List<Tp_jl_duo> tp_list = new ArrayList<Tp_jl_duo>();					
+			tpList = voteService.VoteList(Long.valueOf("2"));			
 			for(int i=0;i<tpList.size();i++) {
-			tp_jlList = voteService.pxVoteList(Integer.valueOf(tpList.get(i).getTpId()));
+			tp_jlList = voteService.pxVoteList(Integer.valueOf(tpList.get(i).getTpId()));		
 			tp_jlList1.addAll(tp_jlList);  //将此会议编号的所有投票记录加入
-			}
-			model.addAttribute("list1", tp_jlList1);
-			return "particpants/ch_meet_vote";
+			}				
+			for(int i=0;i<tpList.size();i++) {
+				for(int j= 0;j<tp_jlList1.size();j++) {
+				if(tp_jlList1.get(j).getTpId().equals(tpList.get(i).getTpId())) {
+				String note = tpList.get(i).getNote();
+				Integer px = tp_jlList1.get(j).getPx();
+				Integer tpId = tp_jlList1.get(j).getTpId();
+				Tp_jl_duo tp_duo = new Tp_jl_duo();
+				tp_duo.setNote(note);
+				if(px==1) {
+				    tp_duo.setPx("同意");
+				}
+				else if(px==0) {
+					tp_duo.setPx("反对");
+				}
+				tp_duo.setTpId(tpId);
+				tp_list.add(tp_duo);
+			    }	
+				}
+			}					
+			
+			model.addAttribute("list2", tp_list);
+			return "particpants/ch_meet_vote_jl";
 			
 		}
 		return "particpants/ch_meet_vote";		
@@ -104,9 +126,9 @@ public class TpController {
 		    }	
 			}
 		}					
-		model.addAttribute("list", tpList);
+		
 		model.addAttribute("list2", tp_list);
-		model.addAttribute("list1", tp_jlList1);
+		
 		return "particpants/ch_meet_vote_jl";
 		
 	}

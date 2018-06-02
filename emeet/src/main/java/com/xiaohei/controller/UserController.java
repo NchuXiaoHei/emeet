@@ -25,6 +25,7 @@ public class UserController {
 		user = userService.loginValidate(userId, pwd);
 		if(user!=null) {
 			session.setAttribute("user", user);
+			System.out.println("$$$$"+user.getUserId());
 			return "ower/meetUp";
 		}
 		
