@@ -1,11 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%  
-    String path = request.getContextPath();  
-    String basePath = request.getScheme() + "://"  
-            + request.getServerName() + ":" + request.getServerPort()  
-            + path + "/";  
-%> 
-<form action="/addZl" name="userForm" method="post">
+
+<form action="/addZl" name="userForm" method="post" enctype="multipart/form-data">
 <div class="form-group">
 <h2>上传资料</h2>
 </div>
@@ -18,7 +13,7 @@
     <textarea class="form-control" name="note" rows="3" style="width:330px;margin-top:10px;" placeholder="简单说明文件作用"></textarea>
 </div>
 <div class="form-group">
-    <input type="file" id="inputfile" name="file_path" style="margin-top:10px;">
+    <input type="file" id="inputfile" name="files" style="margin-top:10px;">
 </div>
 <div class="form-group">
 <button  type="submit" style="width:130px;height:40px;">提交</button>

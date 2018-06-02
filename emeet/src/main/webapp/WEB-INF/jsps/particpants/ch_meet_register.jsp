@@ -52,21 +52,13 @@
             <li><a href="javascript:void(0);" onclick="add_register()">签到</a></li>
           </ul>
         </div>
-        
-                       
-             
-        
-        <c:forEach var="vote" items="${list}" >
+              
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="right">
-	  	 <div class="col-md-6" align="center">
-        
-        <img class="img-responsive img-rounded" src="${vote}"/>
-        <b class="btn btn-success" >我要解</b>
-        
+	  	<div class="col-md-6" align="center">     
+        <img class="img-responsive img-rounded" src="${imageUrl}"/>
+        <b class="btn btn-success" >我要解码</b>        
         </div>
-        </div>
-        </c:forEach>
-       
+        </div>              
   </div>
   </div>
     <!-- Bootstrap core JavaScript

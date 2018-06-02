@@ -15,17 +15,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.xiaohei.service.RegisterService;
 import com.xiaohei.service.ZxingDecoderService;
-import com.xiaohei.model.RegisterCode;
+
 @Controller
 public class RegisterController {
 	@Autowired
 	RegisterService registerService;
 	@Autowired
 	ZxingDecoderService zxingDecoderService;
-    
+	
 
     @RequestMapping("/zxingdecode")
-    public String zxingdecode(Model model,@RequestParam("realImgPath") String realImgPath, HttpSession session) {
+    public String zxingdecode(ModelAndView model,@RequestParam("realImgPath") String realImgPath, HttpSession session) {
         String uploadPath = "/images" ;
         String realUploadPath = session.getServletContext().getRealPath(uploadPath) ;
         String imgPath = realUploadPath+"/"+realImgPath ;
@@ -34,28 +34,30 @@ public class RegisterController {
         ModelAndView ret = new ModelAndView() ;
         ret.addObject("result", result) ;
         ret.setViewName("zxingdecode");
-        
-        model.addAttribute("list",ret);
+        model.addObject("list",ret);
+       
         
         return "particpants/ch_meet_register" ;
     }
 
     @RequestMapping("/zxingcoder")
-    public String watermark(ModelMap model,HttpSession session) throws Exception {
-        String uploadPath = "../jsps/resources/img" ;
+    public String watermark(ModelAndView model,HttpSession session) throws Exception {
+        String uploadPath = "WEB-INF/resources/img" ;
         String realUploadPath = session.getServletContext().getRealPath(uploadPath) ;
         String imageName = "2"+".jpg" ;
-        // 模拟订单详情
-        String contents = "订单编号：20160512082345"+"\n"+"订单金额：￥ 2050.00"+"\n"+"支付方式：预存款"+"\n"+"配送方式：京东快递" ;  
+        String contents = "姓名：李梓洋"+"\n"+"UsreId：15201208"+"\n"+"状态：签到成功" ;  
         int width = 300;  
         int height = 300; 
         String zxingImage = registerService.encode(contents, width, height, uploadPath, realUploadPath, imageName);  
         File image = new File(realUploadPath+"/"+imageName); 
+        String logoImageUrl = registerService.LogoMatrix(image, uploadPath, realUploadPath, imageName) ;
         ModelAndView ret = new ModelAndView() ;
         ret.addObject("imageUrl", zxingImage) ;
-        ret.addObject("imageName", imageName) ;       
-        ret.setViewName("zxingcoder");
-        model.addAttribute("list",ret);
+        ret.addObject("imageName", imageName) ;
+        ret.addObject("logoImageUrl", logoImageUrl) ;
+        ret.setViewName("zxingcoder");  
+               
+        model.addObject("imageUrl", zxingImage);
         
         return "particpants/ch_meet_register" ;
     }

@@ -57,8 +57,7 @@
         <c:forEach var="vote" items="${list2}" >     
         <form action="/savetp" name="Form" method="post">
         
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="right">
-	      
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="right">	      
 	     <table class="table table-striped" >
 	            <tr>                
                   <th style="margin-left:200px;">投票信息</th>
@@ -68,10 +67,10 @@
 		         <th style="margin-left:200px;">${vote.note }</th>
 		         <th style="margin-left:200px;">${vote.px } </th>               
 		        </tr>	
-		 </table>
-		 
+		 </table>	 
         </div>
         </form>
+        
         </c:forEach>
   </div>
   </div>

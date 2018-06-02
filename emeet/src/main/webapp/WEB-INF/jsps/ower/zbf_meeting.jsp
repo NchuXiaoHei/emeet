@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,9 +45,10 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">主办方操作<span class="sr-only">(current)</span></a></li>
-            <li><a href="javascript:void(0);" onclick="add_upload()">会议状态管理</a></li>         
-            <li><a href="javascript:void(0);" onclick="add_vote()" id="tp" name="id">邀请参会人员</a></li>
-            <li><a href="javascript:void(0);" onclick="add_register()">发起投票</a></li>
+            <li><a href="javascript:void(0);" onclick="hy_status(${hy.hy_id})">会议状态管理</a></li>         
+            <li><a href="javascript:void(0);" onclick="ch_users(${hy.hy_id})" id="tp" name="id">邀请参会人员</a></li>
+            <li><a href="javascript:void(0);" onclick="vote(${hy.hy_id})">投票管理</a></li>
+            <li><a href="javascript:void(0);" onclick="hy_lc(${hy.hy_id})">会议流程管理</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="right">
@@ -64,15 +67,51 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
-<script>
-  function add_upload(){
-      $("#right").load("ch_meet_upload");
+<script type="text/javascript">
+  function hy_status(var hy_id){
+	  $.ajax(
+				type:'POST',
+				url:'/getStatus',
+				data: 'hy_id='+hy_id,
+				dataType: "text",
+				success: function(msg){
+					$("#right").html(msg);
+				}
+			);
   }
-  function add_vote(){
-	  window.location.href="/tpList";
+  function ch_users(var hy_id){
+	 $.ajax(
+				type: 'POST',
+				dataType: "text",
+				data: "hy_id="+hy_id,
+				url: '/ch_users',
+				success: function(msg){
+					$("#right").html(msg);
+				}
+			);
   }
-  function add_register(){
-	  $("#right").load("ch_meet_register");
+  function vote(var hy_id){
+	  $.ajax(
+				type: 'POST',
+				dataType: "text",
+				data: "hy_id="+hy_id,
+				url: '/voteList',
+				success: function(msg){
+					$("#right").html(msg);
+				}
+			);
+  }
+  
+  function hy_lc(var hy_id){
+	  $.ajax(
+			  	type: 'POST',
+				dataType: "text",
+				data: "hy_id="+hy_id,
+				url: '/hy_lc',
+				success: function(msg){
+					$("#right").html(msg);
+				}	  
+	  );
   }
 </script>
 </html>
