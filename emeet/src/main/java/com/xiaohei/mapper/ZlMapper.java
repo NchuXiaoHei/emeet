@@ -10,7 +10,7 @@ public interface ZlMapper {
 
     int deleteByExample(ZlExample example);
 
-    int deleteByPrimaryKey(@Param("zlId") Integer zlId, @Param("id") Long id);
+    int deleteByPrimaryKey(@Param("zlId") String zlId, @Param("id") Long id);
 
     int insert(Zl record);
 
@@ -20,7 +20,7 @@ public interface ZlMapper {
 
     List<Zl> selectByExample(ZlExample example);
 
-    Zl selectByPrimaryKey(@Param("zlId") Integer zlId, @Param("id") Long id);
+    Zl selectByPrimaryKey(@Param("zlId") String zlId, @Param("id") Long id);
 
     int updateByExampleSelective(@Param("record") Zl record, @Param("example") ZlExample example);
 

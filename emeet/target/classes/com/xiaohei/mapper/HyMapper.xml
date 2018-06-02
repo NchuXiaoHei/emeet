@@ -10,6 +10,7 @@
     <result column="pirture1" jdbcType="VARCHAR" property="pirture1" />
     <result column="pirture2" jdbcType="VARCHAR" property="pirture2" />
     <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, name, s_time, e_time, theme, pirture1, pirture2, status
+    ID, name, s_time, e_time, theme, pirture1, pirture2, status, address
   </sql>
   <select id="selectByExample" parameterType="com.xiaohei.model.HyExample" resultMap="BaseResultMap">
     select
@@ -106,10 +107,12 @@
   <insert id="insert" parameterType="com.xiaohei.model.Hy">
     insert into hy (ID, name, s_time, 
       e_time, theme, pirture1, 
-      pirture2, status)
+      pirture2, status, address
+      )
     values (#{id,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, #{sTime,jdbcType=TIMESTAMP}, 
       #{eTime,jdbcType=TIMESTAMP}, #{theme,jdbcType=VARCHAR}, #{pirture1,jdbcType=VARCHAR}, 
-      #{pirture2,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+      #{pirture2,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.xiaohei.model.Hy">
     insert into hy
@@ -138,6 +141,9 @@
       <if test="status != null">
         status,
       </if>
+      <if test="address != null">
+        address,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -163,6 +169,9 @@
       </if>
       <if test="status != null">
         #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -199,6 +208,9 @@
       <if test="record.status != null">
         status = #{record.status,jdbcType=VARCHAR},
       </if>
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -213,7 +225,8 @@
       theme = #{record.theme,jdbcType=VARCHAR},
       pirture1 = #{record.pirture1,jdbcType=VARCHAR},
       pirture2 = #{record.pirture2,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=VARCHAR}
+      status = #{record.status,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -242,6 +255,9 @@
       <if test="status != null">
         status = #{status,jdbcType=VARCHAR},
       </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=DECIMAL}
   </update>
@@ -253,7 +269,8 @@
       theme = #{theme,jdbcType=VARCHAR},
       pirture1 = #{pirture1,jdbcType=VARCHAR},
       pirture2 = #{pirture2,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR}
+      status = #{status,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=DECIMAL}
   </update>
 </mapper>

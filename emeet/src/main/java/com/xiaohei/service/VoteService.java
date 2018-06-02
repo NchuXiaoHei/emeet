@@ -19,7 +19,7 @@ public interface VoteService {
 
 	public List<Tp_jl> pxVoteList(Integer id); 
 	
-	public List<Tp_jl> hyVoteList(Long userid);
+	public List<Tp_jl> hyVoteList(Long id);
 		
 	public List<Tp> notin_Tp(List<Integer> list);
 	/*

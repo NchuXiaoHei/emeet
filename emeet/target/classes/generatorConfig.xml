@@ -47,17 +47,21 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         
-
+		 <table tableName="hy" domainObjectName="Hy" 
+        enableCountByExample="true" enableUpdateByExample="true"
+        enableDeleteByExample="true" enableSelectByExample="true"
+        selectByExampleQueryId="true"/>
+        <table tableName="zl" domainObjectName="Zl" 
+        enableCountByExample="true" enableUpdateByExample="true"
+        enableDeleteByExample="true" enableSelectByExample="true"
+        selectByExampleQueryId="true"/>
         <!-- 表名对应生成的实体 -->
         <!-- 
         <table tableName="ch_users" domainObjectName="Ch_Users" 
         enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
         selectByExampleQueryId="true"/>
-        <table tableName="hy" domainObjectName="Hy" 
-        enableCountByExample="true" enableUpdateByExample="true"
-        enableDeleteByExample="true" enableSelectByExample="true"
-        selectByExampleQueryId="true"/>
+       
         <table tableName="hy_jl" domainObjectName="Hy_jl" 
         enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
@@ -86,11 +90,12 @@
         enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
         selectByExampleQueryId="true"/>
-         -->
         <table tableName="tp_jl" domainObjectName="Tp_jl" 
         enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
         selectByExampleQueryId="true"/>
+         -->
+        
         <!-- enableCountByExample="true" enableUpdateByExample="true"
         enableDeleteByExample="true" enableSelectByExample="true"
         selectByExampleQueryId="true">  指定是否生成操作数据库对应的方法 -->

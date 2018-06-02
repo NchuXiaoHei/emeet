@@ -15,7 +15,7 @@ public class Tp_jl_duo {
 	public void setNote(String note) {
 		this.note = note;
 	}
-	public String getPx() {
+	public String  getPx() {
 		return px;
 	}
 	public void setPx(String px) {

@@ -58,7 +58,9 @@
         <img class="img-responsive img-rounded" src="${imageUrl}"/>
         <b class="btn btn-success" >我要解码</b>        
         </div>
-        </div>              
+        </div>
+        
+       
   </div>
   </div>
     <!-- Bootstrap core JavaScript

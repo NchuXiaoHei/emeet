@@ -19,6 +19,8 @@ public class Hy {
 
     private String status;
 
+    private String address;
+
     public Long getId() {
         return id;
     }
@@ -83,6 +85,14 @@ public class Hy {
         this.status = status == null ? null : status.trim();
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -102,7 +112,8 @@ public class Hy {
             && (this.getTheme() == null ? other.getTheme() == null : this.getTheme().equals(other.getTheme()))
             && (this.getPirture1() == null ? other.getPirture1() == null : this.getPirture1().equals(other.getPirture1()))
             && (this.getPirture2() == null ? other.getPirture2() == null : this.getPirture2().equals(other.getPirture2()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()));
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()));
     }
 
     @Override
@@ -117,6 +128,7 @@ public class Hy {
         result = prime * result + ((getPirture1() == null) ? 0 : getPirture1().hashCode());
         result = prime * result + ((getPirture2() == null) ? 0 : getPirture2().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         return result;
     }
 }

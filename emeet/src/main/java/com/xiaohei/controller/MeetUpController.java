@@ -29,13 +29,13 @@ public class MeetUpController {
 	FileService fileService;
 
 	@RequestMapping("/meetUp")
-	public String meetUp(@RequestParam("files") MultipartFile[] files, Model model, HttpSession session, 
+	public String meetUp(@RequestParam("file1") MultipartFile file1, Model model, HttpSession session, 
 			HttpServletRequest request,
+			@RequestParam("file2") MultipartFile file2,
 			@RequestParam("theme") String theme,
 			@RequestParam("s_time") String s_time, @RequestParam("e_time") String e_time,
-			@RequestParam("pirture1") String pirture1, @RequestParam("pirture2") String pirture2)
+			@RequestParam("address") String address)
 			throws ParseException, IllegalStateException, IOException {
-		System.out.println(pirture1);
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = null;
 		date = formatter.parse(s_time);
@@ -48,21 +48,26 @@ public class MeetUpController {
 		date = formatter.parse(e_time);
 		hy.seteTime(date);
 		hy.setStatus("待审核");
-		String[] pirture1s = pirture1.split("/");
-		pirture1 = pirture1s[pirture1s.length - 1];
-		String[] pirture2s = pirture2.split("/");
-		pirture2 = pirture2s[pirture2s.length - 1];
-		hy.setPirture1("resources/pirture1/" + pirture1);
-		hy.setPirture2("resources/pirture2/" + pirture2);
+
+		hy.setPirture1("resources/pirture1/" + file1.getOriginalFilename());
+		hy.setPirture2("resources/pirture2/" + file2.getOriginalFilename());
 		hy.setTheme(theme);
+		MultipartFile[] multipartFiles = new MultipartFile[2];
+		multipartFiles[1] = file1;
+		multipartFiles[2] = file2;
 		if (meetUpService.insert(hy) == 1) {
 			//文件上传操作
 			String path = request.getSession().getServletContext().getRealPath("/resources/pirture1");
-			fileService.fileUpload(files, path);
-			model.addAttribute("hy_id",hy.getId());
-			return "meet";
+			fileService.fileUpload(multipartFiles, path);
+			model.addAttribute("hy",hy);
+			return "ower/zbf_meeting";
 		}
 		return "../index";
 
+	}
+	
+	@RequestMapping("/meetUpJsp")
+	public String meetUpJsp() {
+		return "ower/meetUp";
 	}
 }

@@ -37,6 +37,7 @@
 		<property name="prefix" value="/WEB-INF/jsps/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
 	<!-- 用户管理 -->
 	<!--  
 	<bean id="userService" class="com.xiaohei.service.impl.UserServiceImpl"></bean>

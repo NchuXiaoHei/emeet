@@ -20,13 +20,13 @@ public class UploadServicelmpl implements UploadService{
 		return 1;
 	}
 
-	public List<Zl> ZlList(Long id) {
+	public List<Zl> ZlList(Long id ) {
 		// TODO Auto-generated method stub
 		List<Zl> zlList = new ArrayList<Zl>();
 		
 		ZlExample zlExample = new ZlExample();
 		ZlExample.Criteria criteria = zlExample.createCriteria();
-		criteria.andIdEqualTo(Long.valueOf(id));
+		criteria.andIdEqualTo(id);
 		zlList = zlMapper.selectByExampleWithBLOBs(zlExample);
 		
 		return zlList;

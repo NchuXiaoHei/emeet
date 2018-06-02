@@ -36,11 +36,10 @@ public class UploadController {
 		
 		Zl zl =new Zl();
 		User user = (User)session.getAttribute("user");
-		zl.setZlId(Integer.valueOf(zl_id));
+		zl.setZlId(zl_id);
 		zl.setId(Long.valueOf("2"));
 		zl.setNote(String.valueOf(note));
 		zl.setFilePath("resources/zl/"+files.toString());		
-
 		if (uploadService.insert(zl) == 1) {
 			//文件上传操作
 			String path = request.getSession().getServletContext().getRealPath("WEB-INF/resources/zl");
@@ -59,7 +58,8 @@ public class UploadController {
 	public String tp(Model model,HttpSession session) {
 		
 		List<Zl> zlList = new ArrayList<Zl>();
-		zlList = uploadService.ZlList(Long.valueOf("2"));		
+		zlList = uploadService.ZlList(Long.valueOf("2"));
+		System.out.println(zlList.get(0).getFilePath());
 		model.addAttribute("list", zlList);
 		
 		return "particpants/ch_meet_upload_ck";
