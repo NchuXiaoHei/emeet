@@ -43,7 +43,7 @@ public class TpController {
 		model.addAttribute("list", tpList);
 		model.addAttribute("list1", tpList1);
 		}
-		return "particpants/ch_meet_vote";
+		return "particpants/ch_meet_vote";//
 		
 	}
 	@RequestMapping("/savetp")
